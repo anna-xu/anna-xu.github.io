@@ -1,0 +1,17 @@
+body {
+  background-color: #eafafe;
+  padding-right: 100px;
+  padding-left: 100px;
+  padding-bottom: 50px;
+  height: 100%
+}
+
+header {
+    background-color: #eafafe;
+    position:fixed;
+    top: 0;
+    bottom: 10;
+    left: 0;
+    width: 100%;
+    height: 8%;
+}
