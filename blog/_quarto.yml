@@ -1,0 +1,16 @@
+project:
+  type: website
+
+website:
+  title: "Anna Xu"
+  navbar:
+    right:
+      - text: "What is this blog?"
+        href: about.qmd
+      - text: "Homepage"
+        icon: globe
+        href: https://anna-xu.github.io/
+format:
+  html:
+    theme: simplex
+    css: styles.css

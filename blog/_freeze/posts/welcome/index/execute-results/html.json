@@ -1,0 +1,15 @@
+{
+  "hash": "fd25d6996bf31b2b30150acb3eb37566",
+  "result": {
+    "engine": "knitr",
+    "markdown": "---\ntitle: \"First post\"\ndate: \"2024-10-02\"\ncategories: [test]\n---\n\n\n\nWelcome to my blog and my first post! There's not much going on here, just testing out how to make posts. I used Quarto (theme: vapor) to make this blog. You can learn more about how to do it on [Quarto's website-blog tutorial](https://quarto.org/docs/websites/website-blog.html). In the meantime, I'm going to try running a block of code on this site:\n\n\n\n::: {.cell}\n\n```{.r .cell-code}\nmonth <- \"october\"\n\nprint.seasonal.drink <- function(month){\n    if (month == \"october\"){\n        print(\"The current seasonal drink is a Pumpkin Spice Latte.\")\n    }\n}\n\nprint.seasonal.drink(month)\n```\n\n::: {.cell-output .cell-output-stdout}\n\n```\n[1] \"The current seasonal drink is a Pumpkin Spice Latte.\"\n```\n\n\n:::\n:::\n\n\n\nCheers! :-)\n",
+    "supporting": [],
+    "filters": [
+      "rmarkdown/pagebreak.lua"
+    ],
+    "includes": {},
+    "engineDependencies": {},
+    "preserve": {},
+    "postProcess": true
+  }
+}
