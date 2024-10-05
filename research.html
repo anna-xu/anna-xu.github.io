@@ -1,32 +1,89 @@
-<link rel="stylesheet" href="style.css">
+<link rel="stylesheet" href="subpage-style.css">
 <title>Anna Xu</title>
 
-<header><br>
-<center><a href = "https://anna-xu.github.io">Home</a> | <a href="https://anna-xu.github.io/publications.html">Publications</a> | <a href="https://anna-xu.github.io/brainmaps.html">Brain Maps & Tools</a> | <a href = "https://github.com/anna-xu">GitHub</a>
-</center>
+<!--hamburger icon style menu coded with help from w3: https://www.w3schools.com/howto/howto_js_mobile_navbar.asp -->
+
+<link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css">
+<header>
+<div class="topnav">
+  <div id="myLinks">
+    <br><br>
+    <a href="https://anna-xu.github.io">Home</a>
+    <a href = "about.html">About</a>
+    <a href="research.html">Research</a> 
+    <a href="datacode.html">Code+Data</a>
+    <!-- <a href="https://anna-xu.github.io">Blog</a> -->
+    <a href = "https://www.linkedin.com/in/anna-xu-257317275/">LinkedIn<br>
+    <a href = "https://github.com/anna-xu">GitHub</a>
+  </div>
+  <a href="javascript:void(0);" class="icon" onclick="myFunction()">
+    <i style='font-size:24px' class='fa'>&#xf036;</i>
+  </a>
+</div>
 </header>
+
+<script>
+function myFunction() {
+  var x = document.getElementById("myLinks");
+  if (x.style.display === "block") {
+    x.style.display = "none";
+  } else {
+    x.style.display = "block";
+  }
+} 
+</script>
+
+<!-- hamburger icon style menu end :) -->
+
+<center><h1>Research</h1></center>
+My current research aims to develop more <u><b>precise brain models of learning using machine learning and MRI</b></u>. <br><br>
+
+Specifically, I am reseaching neural plasticity induced by motor skill learning using a visuomotor task that can assess accuracy, adaptation, and speed in participant responses to stimuli while in an MRI scanner over many sessions (dense sampling).
+As part of my research, I am also drawn to questions related to <i>how</i> to make more precise brain models, 
+especially in relation to <u><b>the parcellation question of how to functionally divide the brain into regions</b></u>. 
+Another way to put this is how to reduce the high dimensionality of MRI scans (millions of voxels or hundreds of thousands of vertices) into a lower dimension of hundreds of parcels or regions. 
 <br><br>
-<center><h2>Publications</h2></center>
-<small><i>Last updated:</i> 2022-05-24; see <a href ="https://scholar.google.com/citations?user=IqWy94gAAAAJ&hl=en">my Google Scholar</a> for most up-to-date.<br>
+Previously, I've worked on a variety of research topics related to effort-based decision making, pain, and embodied neuroscience (e.g., proprioception, mind-body practices). 
+More about my past research experience can be found in the <a href="about.html">About</a> section.
+Journal publications from past research are listed below.
+<br><br>
+Related data, software, and code can be found in the <a href="datacode.html">Data+Code</a> section.
+<br><br>
+
+<hr>
+<h2>Publications</h2>
+<small><i>Last updated:</i> 2024-10-04; see <a href ="https://scholar.google.com/citations?user=IqWy94gAAAAJ&hl=en">my Google Scholar</a> for most up-to-date.<br>
 * denotes co-first author; <span>&#8224;</span> denotes trainee</small><br>
 
 <h3>Preprints</h3>
 
-<b>Decision value signals in the ventromedial prefrontal cortex and anhedonia across mood and psychotic disorders.</b><br>
-[<a href="https://www.biorxiv.org/content/10.1101/2020.12.01.407197.abstract">Link</a>]<br>
-<small><i>Min S. Kang, Daniel H. Wolf, Rebecca Kazinka, Sangil Lee, Kosha Ruparel, Mark A. Elliott, Cladia F. Baldassano, <b>Anna Xu</b>, Matthew Cieslak, Greer Prettyman, Theodore D. Satterthwaite</i></small><br>
+<b>Do you ever get tired of being wrong? The unique impact of feedback on subjective experiences of effort-based decision-making.</b><br>
+[<a href="https://osf.io/preprints/psyarxiv/5jekt">Preprint</a>] [<a href="https://github.com/anna-xu/hgt">Code</a>]<br>
+<i><small><b>Anna Xu</b>, Romy Frömer, Wanja Wolff, and Amitai Shenhav</small></i><br>
 <details>
     <summary>
       Abstract
     </summary>
     <p>
-        Deficits in motivation and pleasure are common across many psychiatric disorders, and manifest as symptoms of amotivation and anhedonia, which are prominent features of both mood and psychotic disorders. Here we provide evidence for a shared transdiagnostic mechanism underlying impairments in motivation and pleasure across major depression, bipolar disorder, and schizophrenia. We found that value signals in the ventromedial prefrontal cortex (vmPFC) during decision-making were dampened in individuals with greater motivational and hedonic deficits, regardless of the primary diagnosis. This relationship remained significant while controlling for diagnosis-specific symptoms of mood and psychosis, such as depression as well as positive and negative symptoms. Our results demonstrate that dysfunction in the vmPFC during value-based decision-making is specifically linked to motivational and hedonic impairments across various psychiatric conditions. These findings provide a quantitative neural target for the potential development of novel treatments for amotivation and anhedonia.    
+      To achieve a goal, people have to keep track of how much effort they are putting in (effort monitoring) and how well they are performing (performance monitoring), which can be informed by endogenous signals, or exogenous signals providing explicit feedback about whether they have met their goal. Interventions to improve performance often focus on adjusting feedback to direct the individual on how to better invest their efforts, but is it possible that this feedback itself plays a role in shaping the experience of how effortful the task feels? Here, we examine this question directly by assessing the relationship between effort monitoring and performance monitoring. Participants (N = 68) performed a task in which their goal was to squeeze a handgrip to within a target force level (not lower or higher) for a minimum duration. On most trials, they were given no feedback as to whether they met their goal, and were largely unable to detect how they had performed. On a subset of trials, however, we provided participants with (false) feedback indicating that they had either succeeded or failed at meeting their goal (positive vs. negative feedback blocks, respectively). Sporadically, participants rated their experience of effort exertion, fatigue, and confidence in having met the target grip force on that trial. Despite being non-veridical to their actual performance, we found that the type of feedback participants received influenced their experience of effort. When receiving negative (vs. positive) feedback, participants fatigued faster and adjusted their grip strength more for higher target force levels. We also found that confidence gradually increased with increasing positive feedback and decreased with increasing negative feedback, again despite feedback being uniformly uninformative. These results suggest differential influences of feedback on experiences related to effort and further shed light on the relationship between experiences related to performance monitoring and effort monitoring.
     </p>
   </details>
 <br>
 
-<h3>2022</h3>
+<b>hyve, a compositional visualisation engine for brain imaging data.</b><br>
+[<a href="https://www.ncbi.nlm.nih.gov/pmc/articles/PMC11042383/">Preprint</a>] [<a href="https://github.com/hypercoil/hyve">Code</a>]<br>
+<i><small>Rastko Ćirić, <b>Anna Xu</b>, Russell Alan Poldrack</small></i><br>
+<details>
+    <summary>
+      Abstract
+    </summary>
+    <p>
+      Visualisations facilitate the interpretation of geometrically structured data and results. However, heterogeneous geometries—such as volumes, surfaces, and networks—have traditionally mandated different software approaches. We introduce hyve, a Python library that uses a compositional functional framework to enable parametric implementation of custom visualisations for different brain geometries. Under this framework, users compose a reusable visualisation protocol from geometric primitives for representing data geometries, input primitives for common data formats and research objectives, and output primitives for producing interactive displays or configurable snapshots. hyve also writes documentation for user-constructed protocols, automates serial production of multiple visualisations, and includes an API for semantically organising an editable multi-panel figure. Through the seamless composition of input, output, and geometric primitives, hyve supports creating visualisations for a range of neuroimaging research objectives.
+    </p>
+  </details>
+<br>
 
+<h3>2023</h3>
 <b>Structural imaging studies of patients with chronic pain: an anatomic likelihood estimate meta-analysis.</b> <i>PAIN</i>.<br>
 [<a href="https://europepmc.org/article/med/35560117">Link</a>] [<a href="https://github.com/PennLINC/sMRI_ChronicPain">Code</a>]<br>
 <i><small>Alina T. Henn, Bart Larsen, Lennart Frahm, <b>Anna Xu</b>, Azeez Adebimpe, J. Cobb Scott, Sophia Linguiti, Vaishnavi Sharma<span>&#8224;</span> , Allan I. Basbaum, Gregory Corder, Robert H. Dworkin, Robert R. Edwards, Clifford J. Woolf, Ute Habel, Simon B. Eickhoff, Claudia R. Eickhoff, Lisa Wagels, Theodore D. Satterthwaite</small></i><br>
@@ -36,6 +93,20 @@
     </summary>
     <p>
         Neuroimaging is a powerful tool to investigate potential associations between chronic pain and brain structure. However, the proliferation of studies across diverse chronic pain syndromes and heterogeneous results challenges data integration and interpretation. We conducted a preregistered anatomic likelihood estimate meta-analysis on structural magnetic imaging studies comparing patients with chronic pain and healthy controls. Specifically, we investigated a broad range of measures of brain structure as well as specific alterations in gray matter and cortical thickness. A total of 7,849 abstracts of experiments published between January 1, 1990 and April 26, 2021 were identified from eight databases and evaluated by two independent reviewers. Overall, 103 experiments with a total of 5,075 participants met the pre-registered inclusion criteria. After correction for multiple comparisons using the gold standard family-wise error correction (p<. 05), no significant differences associated with chronic pain were found. However, exploratory analyses using threshold-free cluster enhancement revealed several spatially distributed clusters showing structural alterations in chronic pain. The majority of clusters coincided with regions implicated in nociceptive processing including the amygdala, thalamus, hippocampus, insula, anterior cingulate cortex and inferior frontal gyrus. Taken together, these results suggest that chronic pain is associated with subtle, spatially distributed alterations of brain structure.
+    </p>
+  </details>
+<br>
+
+<h3>2022</h3>
+<b>Decision value signals in the ventromedial prefrontal cortex and motivational and hedonic symptoms across mood and psychotic disorders. </b><i>Neuroimage: Clinical.</i><br>
+[<a href="https://www.sciencedirect.com/science/article/pii/S2213158222002923">Link</a>] [<a href="https://www.biorxiv.org/content/10.1101/2020.12.01.407197.abstract">Preprint</a>]<br>
+<small><i>Min K. Souther, Daniel H. Wolf, Rebecca Kazinka, Sangil Lee, Kosha Ruparel, Mark A. Elliott, <b>Anna Xu</b>, Matthew Cieslak, Greer Prettyman, Theodore D. Satterthwaite, Joseph W. Kable</i></small><br>
+<details>
+    <summary>
+      Abstract
+    </summary>
+    <p>
+      Deficits in motivation and pleasure are common across many psychiatric disorders, and manifest as symptoms of amotivation and anhedonia, which are prominent features of both mood and psychotic disorders. Here we provide evidence for an association between neural value signals and symptoms of amotivation and anhedonia across adults with major depression, bipolar disorder, schizophrenia, or no psychiatric diagnosis. We found that value signals in the ventromedial prefrontal cortex (vmPFC) during intertemporal decision-making were dampened in individuals with greater motivational and hedonic deficits, after accounting for primary diagnosis. This relationship remained significant while controlling for diagnosis-specific symptoms of mood and psychosis, such as depression as well as positive and negative symptoms. Our results demonstrate that dysfunction in the vmPFC during value-based decision-making is specifically linked to motivational and hedonic impairments. These findings provide a quantitative neural target for the potential development of novel treatments for amotivation and anhedonia.
     </p>
   </details>
 <br>
@@ -134,3 +205,5 @@
 <br>
 
 </a>
+
+<footer>🐈 Website by Anna Xu · <a href="https://github.com/anna-xu/anna-xu.github.io">Click here for site code</a></footer>

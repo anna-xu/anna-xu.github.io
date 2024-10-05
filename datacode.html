@@ -1,0 +1,77 @@
+<link rel="stylesheet" href="subpage-style.css">
+<link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css">
+<title>Anna Xu</title>
+
+<!--hamburger icon style menu coded with help from w3: https://www.w3schools.com/howto/howto_js_mobile_navbar.asp -->
+
+<link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css">
+<header>
+<div class="topnav">
+  <div id="myLinks">
+    <br><br>
+    <a href="https://anna-xu.github.io">Home</a>
+    <a href = "about.html">About</a>
+    <a href="research.html">Research</a> 
+    <a href="datacode.html">Code+Data</a>
+    <!-- <a href="https://anna-xu.github.io">Blog</a> -->
+    <a href = "https://www.linkedin.com/in/anna-xu-257317275/">LinkedIn<br>
+    <a href = "https://github.com/anna-xu">GitHub</a>
+  </div>
+  <a href="javascript:void(0);" class="icon" onclick="myFunction()">
+    <i style='font-size:24px' class='fa'>&#xf036;</i>
+  </a>
+</div>
+</header>
+
+<script>
+function myFunction() {
+  var x = document.getElementById("myLinks");
+  if (x.style.display === "block") {
+    x.style.display = "none";
+  } else {
+    x.style.display = "block";
+  }
+} 
+</script>
+
+<!-- hamburger icon style menu end :) -->
+<div class="code section" id="code">
+<h1><center>Code+Data</center></h1>
+
+This section contains links to software/code and data from my research (mostly human neuroimaging with MRI) that may be helpful. 
+For example, some of the human brain maps in `nifti` format under <i>Data</i> might be useful for creating masks for regional analyses or other analyses.<br><br> 
+
+<center><h2>Software/Code</h2></center>
+<h3>Python Packages for MRI</h3>
+<a href="https://github.com/anna-xu/sparque"><b>Software for PARcellation QUality Evaluation</b></a><br>
+Pre-alpha release of tool for evaluating functional brain parcellation with MRI data</li><br><br>
+<a href="https://github.com/hypercoil/hyve"><b>Hypercoil Visualisation Engine</b></a><br>
+Interactive and static 3D visualisation for functional brain mapping</li>
+</div>
+
+<div class="data section" id="data">
+<center><h2>Data</h2></center>
+<h3>Brain Maps</h3>
+
+<a href="https://midmsl.github.io"><b>MIDMSL: Multimodal Imaging Dataset of Motor Skill Learning (MRI dataset)</b></a><br>
+<small>Presented at Organization for Human Brain Mapping 2024
+  <br>
+  Data is currently not out yet, but you can click the blue title to check the MIDMSL webpage for announcements.
+</small>
+
+<br><br>
+
+<a href="https://neurovault.org/collections/AJKXTUXX/"><b>Experimentally-induced acute pain in healthy volunteers (fMRI meta-analysis)</b></a>
+<br>
+<small>
+  from <a href="https://www.sciencedirect.com/science/article/abs/pii/S0149763419308656"><font color="#c93ae5"><i>Convergent neural representations of experimentally-induced acute pain in healthy volunteers: A large-scale fMRI meta-analysis</i></font></a>
+  <br>
+  Thresholded and unthresholded maps of meta-analytic results available by clicking the blue title.
+  <br><br>
+</small>
+<img src ="https://ars.els-cdn.com/content/image/1-s2.0-S0149763419308656-gr12.jpg" width=35%><br>
+<small>figure from published paper in <i>Neuroscience & Biobehavioral Reviews</i></small>
+</a>
+</div>
+
+<footer>🐈 Website by Anna Xu · <a href="https://github.com/anna-xu/anna-xu.github.io">Click here for site code</a></footer>
