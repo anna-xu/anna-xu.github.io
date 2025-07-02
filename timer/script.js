@@ -10,6 +10,12 @@ class IntervalTimer {
         this.isWorkPhase = true;
         this.timerInterval = null;
         
+        // Robust timing mechanism
+        this.startTime = null;
+        this.pausedTime = 0;
+        this.phaseStartTime = null;
+        this.phaseDuration = 0;
+        
         // Custom workout mode
         this.isCustomMode = false;
         this.customIntervals = [];
@@ -134,6 +140,27 @@ class IntervalTimer {
         this.builderStatus = document.getElementById('builderStatus');
         
         this.intervalCounter = 0;
+        this.visibilityListener = null;
+    }
+    
+    addVisibilityListener() {
+        if (this.visibilityListener) return; // Already added
+        
+        this.visibilityListener = () => {
+            if (!document.hidden && this.isRunning) {
+                // Tab became visible and timer is running - force update
+                this.tick();
+            }
+        };
+        
+        document.addEventListener('visibilitychange', this.visibilityListener);
+    }
+    
+    removeVisibilityListener() {
+        if (this.visibilityListener) {
+            document.removeEventListener('visibilitychange', this.visibilityListener);
+            this.visibilityListener = null;
+        }
     }
     
     initializeTimeValues() {
@@ -935,6 +962,8 @@ class IntervalTimer {
     }
 
     start() {
+        const now = Date.now();
+        
         if (!this.isRunning && !this.isPaused) {
             // Starting fresh
             if (this.isCustomMode) {
@@ -946,11 +975,18 @@ class IntervalTimer {
                 this.currentCustomCycle = 1;
                 this.customTotalCycles = parseInt(this.customCyclesInput.value);
                 this.timeRemaining = this.customIntervals[0].time;
+                this.phaseDuration = this.customIntervals[0].time;
             } else {
                 this.currentCycle = 1;
                 this.isWorkPhase = true;
                 this.timeRemaining = this.workTime;
+                this.phaseDuration = this.workTime;
             }
+            this.phaseStartTime = now;
+            this.pausedTime = 0;
+        } else if (this.isPaused) {
+            // Resuming from pause - add paused time
+            this.pausedTime += now - this.pauseStartTime;
         }
         
         this.isRunning = true;
@@ -983,9 +1019,13 @@ class IntervalTimer {
         this.jsonTab.disabled = true;
         this.intervalsContainer.querySelectorAll('input, button').forEach(el => el.disabled = true);
         
+        // Use shorter interval for more responsive updates
         this.timerInterval = setInterval(() => {
             this.tick();
-        }, 1000);
+        }, 100);
+        
+        // Add visibility change listener for better background handling
+        this.addVisibilityListener();
         
         this.updateDisplay();
     }
@@ -994,6 +1034,7 @@ class IntervalTimer {
         if (this.isRunning) {
             this.isRunning = false;
             this.isPaused = true;
+            this.pauseStartTime = Date.now();
             
             clearInterval(this.timerInterval);
             
@@ -1025,7 +1066,15 @@ class IntervalTimer {
         this.isWorkPhase = true;
         this.timeRemaining = 0;
         
+        // Reset timing variables
+        this.startTime = null;
+        this.pausedTime = 0;
+        this.phaseStartTime = null;
+        this.phaseDuration = 0;
+        this.pauseStartTime = null;
+        
         clearInterval(this.timerInterval);
+        this.removeVisibilityListener();
         
         this.startBtn.disabled = false;
         this.startMainBtn.disabled = false;
@@ -1063,7 +1112,9 @@ class IntervalTimer {
     }
     
     tick() {
-        this.timeRemaining--;
+        const now = Date.now();
+        const elapsedTime = Math.floor((now - this.phaseStartTime - this.pausedTime) / 1000);
+        this.timeRemaining = Math.max(0, this.phaseDuration - elapsedTime);
         
         if (this.timeRemaining <= 0) {
             this.completePhase();
@@ -1075,6 +1126,8 @@ class IntervalTimer {
     completePhase() {
         // Play notification sound (if available)
         this.playNotificationSound();
+        
+        const now = Date.now();
         
         if (this.isCustomMode) {
             // Check if we're at the last interval of current cycle
@@ -1091,16 +1144,19 @@ class IntervalTimer {
                 // Start next cycle
                 this.currentIntervalIndex = 0;
                 this.timeRemaining = this.customIntervals[0].time;
+                this.phaseDuration = this.customIntervals[0].time;
             } else {
                 // Move to next interval in current cycle
                 this.currentIntervalIndex++;
                 this.timeRemaining = this.customIntervals[this.currentIntervalIndex].time;
+                this.phaseDuration = this.customIntervals[this.currentIntervalIndex].time;
             }
         } else {
             if (this.isWorkPhase) {
                 // Work phase completed, switch to rest
                 this.isWorkPhase = false;
                 this.timeRemaining = this.restTime;
+                this.phaseDuration = this.restTime;
             } else {
                 // Rest phase completed, move to next cycle
                 this.currentCycle++;
@@ -1113,8 +1169,13 @@ class IntervalTimer {
                 
                 this.isWorkPhase = true;
                 this.timeRemaining = this.workTime;
+                this.phaseDuration = this.workTime;
             }
         }
+        
+        // Reset timing for new phase
+        this.phaseStartTime = now;
+        this.pausedTime = 0;
     }
     
     completeWorkout() {
@@ -1122,6 +1183,7 @@ class IntervalTimer {
         this.isPaused = false;
         
         clearInterval(this.timerInterval);
+        this.removeVisibilityListener();
         
         // Store the completed workout data
         this.lastCompletedWorkout = this.captureWorkoutData();
