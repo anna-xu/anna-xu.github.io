@@ -477,7 +477,7 @@ h1 {
 /* Homepage  Link */
 .homepage {
     position: fixed;
-    bottom: 40px;
+    bottom: 80px;
     left: 20px;
     font-size: 0.8rem;
     text-decoration: none;
