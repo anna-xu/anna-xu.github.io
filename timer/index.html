@@ -1,0 +1,605 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Interval Timer</title>
+    <link rel="stylesheet" href="styles.css">
+    <script src="https://cdn.jsdelivr.net/npm/chart.js"></script>
+    <script src="https://cdn.jsdelivr.net/npm/chartjs-adapter-date-fns/dist/chartjs-adapter-date-fns.bundle.min.js"></script>
+</head>
+<body>
+    <div class="container">
+        <div class="controls-compact">
+            <button id="startBtn" class="btn-icon btn-start" title="Start">▶</button>
+            <button id="pauseBtn" class="btn-icon btn-pause" title="Pause">⏸</button>
+            <button id="skipBtn" class="btn-icon btn-skip" title="Skip">⏭</button>
+            <button id="resetBtn" class="btn-icon btn-reset" title="Reset">↻</button>
+        </div>
+        
+        <div class="timer-display">
+            <div class="time-remaining" id="timeDisplay">00:00</div>
+            <div class="phase-indicator" id="phaseIndicator">Ready to Start</div>
+        </div>
+        
+        <div class="progress">
+            <div class="progress-info">
+                <div class="cycle-info">
+                    <span>Progress: <span id="currentCycle">0</span> / <span id="totalCycles">8</span></span>
+                </div>
+                <div class="cycle-counter" id="cycleCounter" style="display: none;">
+                    <span>Cycle: <span id="currentWorkoutCycle">1</span> / <span id="totalWorkoutCycles">1</span></span>
+                </div>
+            </div>
+            <div class="progress-bar">
+                <div class="progress-fill" id="progressFill"></div>
+            </div>
+        </div>
+        
+        <div class="settings">
+            <div class="mode-selector">
+                <label>
+                    <input type="radio" name="mode" value="simple" id="simpleMode" checked>
+                    Simple Mode
+                </label>
+                <label>
+                    <input type="radio" name="mode" value="custom" id="customMode">
+                    Custom Mode
+                </label>
+                <label>
+                    <input type="radio" name="mode" value="visualization" id="visualizationMode">
+                    📊 Data Visualization
+                </label>
+                <button id="helpBtn" class="help-btn-small">ℹ️ Help</button>
+            </div>
+            
+            <div class="simple-settings" id="simpleSettings">
+                <div class="preset-section">
+                    <h3>Try a quick preset!</h3>
+                    <button id="pomodoroBtn" class="preset-btn">🍅 Pomodoro Timer</button>
+                    <button id="simpleTimerBtn" class="preset-btn">⏰ Simple 30m Timer</button>
+                </div>
+                
+                <div class="time-setting-group">
+                    <label for="workTime">Work Time:</label>
+                    <div class="time-input-container">
+                        <input type="number" id="workTime" value="30" min="1" max="999" placeholder="30">
+                        <div class="unit-buttons">
+                            <button class="unit-btn active" data-target="work" data-unit="seconds">Seconds</button>
+                            <button class="unit-btn" data-target="work" data-unit="minutes">Minutes</button>
+                        </div>
+                    </div>
+                </div>
+                
+                <div class="time-setting-group">
+                    <label for="restTime">Rest Time:</label>
+                    <div class="time-input-container">
+                        <input type="number" id="restTime" value="15" min="1" max="999" placeholder="15">
+                        <div class="unit-buttons">
+                            <button class="unit-btn active" data-target="rest" data-unit="seconds">Seconds</button>
+                            <button class="unit-btn" data-target="rest" data-unit="minutes">Minutes</button>
+                        </div>
+                    </div>
+                </div>
+                
+                <div class="input-group">
+                    <label for="cycles">Number of Cycles:</label>
+                    <input type="number" id="cycles" value="8" min="1" max="50">
+                </div>
+                
+                <div class="start-button-section">
+                    <button id="startMainBtn" class="btn btn-start-main">Start!</button>
+                </div>
+            </div>
+            
+            <div class="custom-settings" id="customSettings" style="display: none;">
+                <div class="builder-tabs">
+                    <button class="tab-btn active" id="builderTab">🔧 Timer Builder</button>
+                    <button class="tab-btn" id="jsonTab">📝 JSON Editor</button>
+                </div>
+                
+                <div class="builder-section" id="builderSection">
+                    <div class="builder-header">
+                        <h4>Build Your Custom Timer</h4>
+                        <button id="addIntervalBtn" class="btn btn-add">+ Add Interval</button>
+                    </div>
+                    
+                    <div class="intervals-container" id="intervalsContainer">
+                        <!-- Intervals will be added here dynamically -->
+                    </div>
+                    
+                    <button id="generateJsonBtn" class="btn btn-secondary">Generate & Load Timer</button>
+                    <div class="builder-status" id="builderStatus"></div>
+                    
+                    <div class="input-group" style="margin-top: 15px;">
+                        <label for="builderCycles">Number of Cycles:</label>
+                        <input type="number" id="builderCycles" value="1" min="1" max="50">
+                    </div>
+                    
+                    <div class="start-button-section">
+                        <button id="startBuilderBtn" class="btn btn-start-main">Start!</button>
+                    </div>
+                </div>
+                
+                <div class="json-section" id="jsonSection" style="display: none;">
+                    <div class="json-input-group">
+                        <label for="jsonInput"><b>Input your custom timer using JSON strings:</b> <br> (here's an example!)</label>
+                        <textarea id="jsonInput">[
+  {"label": "Push-ups", "time": "45s"},
+  {"label": "Rest", "time": "15s"},
+  {"label": "Squats", "time": "1m 30s", "notes": "45"},
+  {"label": "Rest", "time": "20s"},
+  {"label": "Burpees", "time": "2m"},
+  {"label": "Rest", "time": "15s"}
+]</textarea>
+                        <div class="json-status" id="jsonStatus"></div>
+                    </div>
+                    
+                    <div class="input-group" style="margin-bottom: 15px;">
+                        <label for="customCycles"><strong>Number of Cycles:</strong></label>
+                        <input type="number" id="customCycles" value="1" min="1" max="50">
+                    </div>
+                    
+                    <div class="input-group" style="margin-bottom: 15px;">
+                        <label for="dayInput">Day (optional):</label>
+                        <input type="number" id="dayInput" placeholder="Enter day number (e.g., 1, 2, 3...)" min="1">
+                    </div>
+                    
+                    <div class="advanced-text-center">
+                        <button class="advanced-link" id="dayAdvancedBtn">Advanced</button>
+                    </div>
+                    
+                    <div class="json-button-group">
+                        <button id="loadJsonBtn" class="btn btn-secondary">Load Timer</button>
+                        <button id="copyJsonInputBtn" class="btn btn-secondary">📋 Copy JSON</button>
+                        <button id="clearJsonBtn" class="btn btn-secondary">🗑️ Clear JSON</button>
+                    </div>
+                    
+                    <div class="start-button-section">
+                        <button id="startJsonBtn" class="btn btn-start-main">Start!</button>
+                    </div>
+                </div>
+            </div>
+            
+            <div class="visualization-settings" id="visualizationSettings" style="display: none;">
+                <div class="viz-content">
+                    <h3>📊 Data Visualization</h3>
+                    <p>
+                        <div class="viz-features">
+                            <div class="feature-item">📈 Visualize your timer data over time</div>
+                            <div class="feature-item">📅 Input JSON data with dates to create charts</div>
+                            <div class="feature-item">📋 Copy & append JSON to combine with existing data</div>
+                            <div class="feature-item">💾 Export data easily for future visualization</div>
+                        </div>
+                    </p>
+                    
+                    <div class="viz-input-section">
+                        <label for="vizJsonInput"><strong>Timer Data (JSON):</strong></label>
+                        <textarea id="vizJsonInput">// Squats record tracking - pounds squatted
+date: "2025-07-01"
+[
+  {"label": "Push-ups", "time": "45s"},
+  {"label": "Rest", "time": "15s"},
+  {"label": "Squats", "time": "1m 30s", "notes": "45"},
+  {"label": "Rest", "time": "20s"},
+  {"label": "Burpees", "time": "2m", "notes": "5"},
+  {"label": "Rest", "time": "15s"}
+]
+
+// Week 2 - increased weights and reps
+date: "2025-07-05"
+[
+  {"label": "Push-ups", "time": "45s"},
+  {"label": "Rest", "time": "15s"},
+  {"label": "Squats", "time": "1m 30s", "notes": "95"},
+  {"label": "Rest", "time": "20s"},
+  {"label": "Burpees", "time": "2m", "notes": "8"},
+  {"label": "Rest", "time": "15s"}
+]</textarea>
+                        <div class="viz-status" id="vizStatus"></div>
+                    </div>
+                    
+                    <div class="viz-controls">
+                        <button id="generateChartBtn" class="btn btn-secondary">📈 Generate Chart</button>
+                        <button id="clearChartBtn" class="btn btn-secondary">🗑️ Clear Chart</button>
+                        <button id="copyVizJsonBtn" class="btn btn-secondary">📋 Copy JSON</button>
+                        <button id="clearVizDataBtn" class="btn btn-secondary">🧹 Clear Data</button>
+                    </div>
+                    
+                    <div class="chart-container" id="chartContainer" style="display: none;">
+                        <canvas id="workoutChart"></canvas>
+                    </div>
+                    
+                    <div class="viz-help">
+                        <h4>How it works:</h4>
+                        <ul>
+                            <li><strong>Date Format:</strong> Use "date: YYYY-MM-DD" before each timer session</li>
+                            <li><strong>Comments:</strong> Add "// your notes" lines for chart captions</li>
+                            <li><strong>X-axis:</strong> Dates will be plotted on the horizontal axis</li>
+                            <li><strong>Y-axis:</strong> If "notes" contains a number, it will be plotted. Otherwise, time duration will be used</li>
+                            <li><strong>Colors:</strong> Each exercise label gets its own color line</li>
+                            <li><strong>Example:</strong> Track progress like weight lifted, reps completed, or duration over time</li>
+                        </ul>
+                    </div>
+                </div>
+            </div>
+        </div>
+        
+
+        
+        <div class="keyboard-hint">
+            <small>💡 Press <kbd>Space</kbd> to skip current interval</small>
+        </div>
+        
+    </div>
+    
+    <!-- Modal Overlay for Timer Completion -->
+    <div class="modal-overlay" id="modalOverlay" style="display: none;">
+        <div class="workout-complete-modal" id="workoutCompleteSection">
+            <h3>🎉 Timer Complete!</h3>
+            <p>Great job! Your timer session has been completed.</p>
+            <div class="completion-actions">
+                <button id="generateVizDataBtn" class="btn btn-secondary">📊 Create Visualization Data</button>
+                <button id="dismissCompleteBtn" class="btn btn-secondary">✅ Dismiss</button>
+            </div>
+            <div class="other-notes-section" id="otherNotesSection" style="display: none;">
+                <label for="otherNotesInput"><strong>Other Notes (optional):</strong></label>
+                <input type="text" id="otherNotesInput" placeholder="e.g., squats records pounds squatted">
+            </div>
+            <div class="generated-json" id="generatedJsonSection" style="display: none;">
+                <label><strong>Generated JSON Data:</strong></label>
+                <p>You can visualize your data by adding to visualization now, or copy to clipboard to append to another JSON containing your data.</p>
+                <textarea id="generatedJsonOutput" readonly></textarea>
+                <div class="json-actions">
+                    <button id="copyJsonBtn" class="btn btn-secondary">📋 Copy to Clipboard</button>
+                    <button id="addToVizBtn" class="btn btn-secondary">➕ Add to Visualization</button>
+                </div>
+            </div>
+        </div>
+    </div>
+    
+    <!-- Help Modal for Data Visualization -->
+    <div class="modal-overlay" id="helpModalOverlay" style="display: none;">
+        <div class="help-modal" id="helpModal">
+            <div class="help-modal-header">
+                <h3>📊 Data Visualization Help</h3>
+                <button id="closeHelpModal" class="close-modal-btn">✕</button>
+            </div>
+            <div class="help-modal-content">
+                <div class="help-section">
+                    <h4>🎯 What is Data Visualization?</h4>
+                    <p>Track your timer progress over time by inputting timer data with dates and generating interactive charts. Perfect for monitoring workout improvement, study consistency, or any routine progress.</p>
+                </div>
+                
+                <div class="help-section">
+                    <h4>📝 Data Format</h4>
+                    <p>Use this format for your timer data (with example below):</p>
+                    <pre><code>// Optional comment for chart caption
+date: "YYYY-MM-DD"
+[
+  {"label": "Exercise Name", "time": "duration", "notes": "optional_number_or_text"},
+]</code></pre>
+                    <p><strong>Comments:</strong> Lines starting with "//" become chart captions</p>
+                </div>
+                
+                <div class="help-section">
+                    <h4>📈 Chart Logic</h4>
+                    <ul>
+                        <li><strong>X-axis:</strong> Dates from your timer data (automatically sorted)</li>
+                        <li><strong>Y-axis:</strong> If "notes" contains a number, plots that value. Otherwise, plots time duration</li>
+                        <li><strong>Lines:</strong> Each exercise label gets its own colored line for progress tracking</li>
+                        <li><strong>Tooltips:</strong> Hover over data points for detailed information</li>
+                        <li><strong>Captions:</strong> Comment lines appear above the chart</li>
+                    </ul>
+                </div>
+                
+                <div class="help-section">
+                    <h4>🛠️ Controls</h4>
+                    <ul>
+                        <li><strong>📈 Generate Chart:</strong> Create visualization from your data</li>
+                        <li><strong>🗑️ Clear Chart:</strong> Remove the current chart display</li>
+                        <li><strong>🧹 Clear Data:</strong> Delete all timer data (with confirmation)</li>
+                    </ul>
+                </div>
+                
+                <div class="help-section">
+                    <h4>🔗 Workflow Integration</h4>
+                    <p>Seamlessly connected to your timer sessions:</p>
+                    <ul>
+                        <li><strong>Auto-Generate Data:</strong> Complete timers in other modes automatically create data</li>
+                        <li><strong>Timer Complete Modal:</strong> Use "📊 Create Visualization Data" after completing timers</li>
+                        <li><strong>Direct Addition:</strong> "➕ Add to Visualization" button adds data here instantly</li>
+                        <li><strong>Smart Replacement:</strong> First addition replaces example data, subsequent additions append</li>
+                    </ul>
+                </div>
+                
+                <div class="help-section">
+                    <h4>💡 Tips for Best Results</h4>
+                    <ul>
+                        <li><strong>Consistent Naming:</strong> Use the same exercise names across different dates</li>
+                        <li><strong>Progress Tracking:</strong> Put numeric values in "notes" field (weights, reps, scores)</li>
+                        <li><strong>Date Format:</strong> Must be YYYY-MM-DD (e.g., "2025-01-15")</li>
+                        <li><strong>Time Formats:</strong> "30s", "1m 30s", "2 minutes", or just numbers (seconds)</li>
+                        <li><strong>Multiple Sessions:</strong> Add multiple date entries to see progress over time</li>
+                    </ul>
+                </div>
+                
+                <div class="help-section">
+                    <h4>📊 Example Use Cases</h4>
+                    <ul>
+                        <li><strong>Strength Training:</strong> Track weight progression in "notes" field</li>
+                        <li><strong>Cardio Improvement:</strong> Monitor duration increases over time</li>
+                        <li><strong>Study Habits:</strong> Visualize focus session consistency</li>
+                        <li><strong>Flexibility:</strong> Track hold times for stretches and poses</li>
+                        <li><strong>Skill Practice:</strong> Monitor practice session lengths and repetitions</li>
+                    </ul>
+                </div>
+            </div>
+        </div>
+    </div>
+    
+    <!-- Simple Mode Help Modal -->
+    <div class="modal-overlay" id="simpleHelpModalOverlay" style="display: none;">
+        <div class="help-modal" id="simpleHelpModal">
+            <div class="help-modal-header">
+                <h3>⏱️ Simple Mode Help</h3>
+                <button id="closeSimpleHelpModal" class="close-modal-btn">✕</button>
+            </div>
+            <div class="help-modal-content">
+                <div class="help-section">
+                    <h4>🎯 Quick Start</h4>
+                    <p>Simple Mode is perfect for basic interval training with work and rest periods. Set your times, choose cycles, and start your timer!</p>
+                </div>
+                
+                <div class="help-section">
+                    <h4>⚙️ Settings</h4>
+                    <ul>
+                        <li><strong>Work Time:</strong> Duration of active exercise (default: 30 seconds)</li>
+                        <li><strong>Rest Time:</strong> Duration of recovery periods (default: 15 seconds)</li>
+                        <li><strong>Cycles:</strong> How many work/rest rounds to complete (default: 8)</li>
+                        <li><strong>Time Units:</strong> Switch between seconds, minutes, or hours</li>
+                    </ul>
+                </div>
+                
+                <div class="help-section">
+                    <h4>🍅 Pomodoro Preset</h4>
+                    <p>Click the <strong>🍅 Pomodoro Timer</strong> button for the classic productivity technique:</p>
+                    <ul>
+                        <li>25 minutes focused work</li>
+                        <li>5 minutes break</li>
+                        <li>4 cycles total (2 hours)</li>
+                    </ul>
+                </div>
+                
+                <div class="help-section">
+                    <h4>⏰ Simple 30m Timer</h4>
+                    <p>Click <strong>⏰ Simple 30m Timer</strong> for uninterrupted focus, or if you just want one timer:</p>
+                    <ul>
+                        <li>30 minutes of work time</li>
+                        <li>No rest periods</li>
+                        <li>1 cycle (pure focus session)</li>
+                    </ul>
+                </div>
+                
+                <div class="help-section">
+                    <h4>🎮 Controls</h4>
+                    <ul>
+                        <li><strong>▶ Start:</strong> Begin or resume the timer</li>
+                        <li><strong>⏸ Pause:</strong> Temporarily stop the timer</li>
+                        <li><strong>⏭ Skip:</strong> Jump to the next interval (also press Spacebar)</li>
+                        <li><strong>↻ Reset:</strong> Return to beginning</li>
+                    </ul>
+                </div>
+                
+                <div class="help-section">
+                    <h4>💡 Pro Tips</h4>
+                    <ul>
+                        <li>Use keyboard shortcut <kbd>Space</kbd> to quickly skip intervals</li>
+                        <li>Audio notifications play between intervals</li>
+                        <li>Progress bars show current interval and overall completion</li>
+                        <li>Try the other modes for more advanced features!</li>
+                    </ul>
+                </div>
+            </div>
+        </div>
+    </div>
+    
+    <!-- Custom Mode Help Modal -->
+    <div class="modal-overlay" id="customHelpModalOverlay" style="display: none;">
+        <div class="help-modal" id="customHelpModal">
+            <div class="help-modal-header">
+                <h3>🔧 Custom Mode Help</h3>
+                <button id="closeCustomHelpModal" class="close-modal-btn">✕</button>
+            </div>
+            <div class="help-modal-content">
+                <div class="help-section">
+                    <h4>🎯 Overview</h4>
+                    <p>Custom Mode offers advanced timer creation with two powerful tools: the visual Timer Builder and flexible JSON Editor.</p>
+                </div>
+                
+                <div class="help-section">
+                    <h4>🔧 Timer Builder</h4>
+                    <ul>
+                        <li><strong>➕ Add Interval:</strong> Create custom exercises with specific durations</li>
+                        <li><strong>Labels:</strong> Name your exercises (e.g., "Push-ups", "Rest", "Squats")</li>
+                        <li><strong>Time:</strong> Set duration using formats like "30s", "1m 30s", "2 minutes"</li>
+                        <li><strong>Notes:</strong> Optional field for tracking (reps, weight, etc.)</li>
+                        <li><strong>✕ Remove:</strong> Delete intervals you don't need</li>
+                        <li><strong>Generate & Load Timer:</strong> Convert your visual timer to JSON and start</li>
+                    </ul>
+                </div>
+                
+                <div class="help-section">
+                    <h4>📝 JSON Editor</h4>
+                    <p>You can also edit the JSON directly to create your own timer for further customization, like creating multi-day routines.</p>
+                    <ul>
+                        <li><strong>Direct JSON Input:</strong> Paste or type timer data in JSON format</li>
+                        <li><strong>Number of Cycles:</strong> Set how many times to repeat the timer</li>
+                        <li><strong>Day (optional):</strong> For multi-day routines (See <span style="color: blue;">Advanced</span> in JSON Editor for details)</li>
+                        <li><strong>Load Timer:</strong> Process your JSON and prepare the timer</li>
+                        <li><strong>🗑️ Clear JSON:</strong> Quickly clear all JSON data and settings</li>
+                    </ul>
+                </div>
+                
+                <div class="help-section">
+                    <h4>📅 Day Feature (Advanced)</h4>
+                    <p>Create multi-day workout routines in one JSON file:</p>
+                    <ul>
+                        <li><strong>Structure:</strong> Array of day objects with intervals and cycles</li>
+                        <li><strong>Usage:</strong> Specify day number (1, 2, 3...) to load specific routines</li>
+                        <li><strong>Perfect for:</strong> Weekly plans, progressive training, study schedules</li>
+                        <li><strong>Copy Example:</strong> Click Advanced → 📋 Copy Example for template</li>
+                    </ul>
+                </div>
+                
+                <div class="help-section">
+                    <h4>🔄 Sync Between Modes</h4>
+                    <p>Timer Builder and JSON Editor work together:</p>
+                    <ul>
+                        <li>Build visually, then generate JSON to see the structure</li>
+                        <li>Edit JSON directly and see results in Timer Builder</li>
+                        <li>Switch between tabs freely during creation</li>
+                    </ul>
+                </div>
+                
+                <div class="help-section">
+                    <h4>💡 Timer Ideas</h4>
+                    <ul>
+                        <li><strong>HIIT Training:</strong> High intensity intervals with rest periods</li>
+                        <li><strong>Yoga Flow:</strong> Different poses with varying hold times</li>
+                        <li><strong>Study Sessions:</strong> Focused work blocks with breaks</li>
+                        <li><strong>Strength Training:</strong> Exercise sets with rest between</li>
+                        <li><strong>Meditation:</strong> Different techniques with transition time</li>
+                    </ul>
+                </div>
+            </div>
+        </div>
+    </div>
+    
+    <!-- Welcome Modal -->
+    <div class="modal-overlay" id="welcomeModalOverlay" style="display: flex;">
+        <div class="help-modal" id="welcomeModal">
+            <div class="help-modal-header">
+                <h3>🎉 Welcome to Interval Timer!</h3>
+                <button id="closeWelcomeModal" class="close-modal-btn">✕</button>
+            </div>
+            <div class="help-modal-content">
+                <div class="help-section">
+                    <h4>🚀 Getting Started</h4>
+                    <p>Choose the perfect timer mode for your needs:</p>
+                </div>
+                
+                <div class="mode-selection-buttons">
+                    <button id="welcomeSimpleBtn" class="welcome-mode-btn">🎯 Start Simple Mode</button>
+                    <button id="welcomeCustomBtn" class="welcome-mode-btn">🔧 Start Custom Mode</button>
+                    <button id="welcomeVizBtn" class="welcome-mode-btn">📊 Start Data Visualization</button>
+                </div>
+                
+                <div class="help-section">
+                    <h4>🎯 Simple Mode</h4>
+                    <p>Perfect for basic interval training with consistent work and rest periods. Great for HIIT workouts, cardio intervals, or focus sessions like the Pomodoro technique.</p>
+                </div>
+                
+                <div class="help-section">
+                    <h4>🔧 Custom Mode</h4>
+                    <p>Create complex, varied timers with different exercises, times, and notes. Perfect for circuit training, yoga flows, or any routine with multiple different activities.</p>
+                </div>
+                
+                <div class="help-section">
+                    <h4>📊 Data Visualization</h4>
+                    <p>Track your progress over time by inputting timer data with dates and generating interactive charts. Perfect for monitoring improvements in your fitness routine.</p>
+                </div>
+                
+                <div class="help-section">
+                    <h4>💡 Need Help?</h4>
+                    <p>Click the <strong>ℹ️ Help</strong> button in any mode for detailed instructions and examples. Each mode has its own specific help guide!</p>
+                </div>
+                
+                <div class="help-section">
+                    <p style="text-align: center; margin-top: 20px;"><strong>Ready to start your timer? Choose a mode above and let's go! 💪</strong></p>
+                </div>
+            </div>
+        </div>
+    </div>
+    
+    <!-- Day Feature Help Modal -->
+    <div class="modal-overlay" id="dayHelpModalOverlay" style="display: none;">
+        <div class="help-modal" id="dayHelpModal">
+            <div class="help-modal-header">
+                <h3>📅 Day Feature - Advanced</h3>
+                <button id="closeDayHelpModal" class="close-modal-btn">✕</button>
+            </div>
+            <div class="help-modal-content">
+                <div class="help-section">
+                    <h4>🎯 What is the Day Feature?</h4>
+                    <p>The Day feature lets you create multi-day timer routines in a single JSON file and load specific days on demand. Perfect for weekly workout plans, study schedules, or progressive training programs!</p>
+                </div>
+                
+                <div class="help-section">
+                    <h4>📝 JSON Structure</h4>
+                    <p>Structure your JSON as an array of day objects:</p>
+                    <div class="json-example-with-copy">
+                        <pre><code>[
+  {
+    "day": 1,
+    "intervals": [
+      {"label": "Push-ups", "time": "30s"},
+      {"label": "Rest", "time": "15s"},
+      {"label": "Squats", "time": "45s"}
+    ],
+    "cycles": 3
+  },
+  {
+    "day": 2,
+    "intervals": [
+      {"label": "Burpees", "time": "20s"},
+      {"label": "Rest", "time": "10s"},
+      {"label": "Cardio", "time": "2m"}
+    ],
+    "cycles": 4
+  }
+]</code></pre>
+                        <button id="copyExampleJsonBtn" class="copy-example-btn" title="Copy example JSON">📋 Copy Example</button>
+                    </div>
+                </div>
+                
+                <div class="help-section">
+                    <h4>🚀 How to Use</h4>
+                    <ol>
+                        <li><strong>Paste your multi-day JSON</strong> into the JSON textarea</li>
+                        <li><strong>Enter a day number</strong> (1, 2, 3, etc.) in the Day field</li>
+                        <li><strong>Click "Load Timer"</strong> - only that day's routine will load</li>
+                        <li><strong>Leave Day empty</strong> to load single-day JSON normally</li>
+                    </ol>
+                </div>
+                
+                <div class="help-section">
+                    <h4>💡 Use Cases</h4>
+                    <ul>
+                        <li><strong>Weekly Workouts:</strong> Day 1 = Monday, Day 2 = Tuesday, etc.</li>
+                        <li><strong>Study Plans:</strong> Different subjects for each day</li>
+                        <li><strong>Progressive Training:</strong> Increasing intensity over time</li>
+                        <li><strong>Work Schedules:</strong> Different task timing for different days</li>
+                    </ul>
+                </div>
+            </div>
+        </div>
+    </div>
+    
+    <a href="https://annakxu.com" 
+       target="_blank" 
+       rel="noopener noreferrer" 
+       class="author-credit">
+        🏠 Homepage
+    </a>
+    
+    <a href="https://unsplash.com/photos/toy-bunny-peeks-from-behind-a-brown-pillow-48g7VoxiNfo" 
+       target="_blank" 
+       rel="noopener noreferrer" 
+       class="photo-credit">
+        📸 Photo from Unsplash (by David Kristianto)
+    </a>
+    
+    <script src="script.js"></script>
+</body>
+</html> 

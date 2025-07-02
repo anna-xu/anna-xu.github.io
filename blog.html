@@ -1,0 +1,164 @@
+<html>
+<link rel="stylesheet" href="subpage-style.css">
+<link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css">
+<title>Anna Xu - Blog</title>
+<meta name="viewport" content="width=device-width, initial-scale=1">
+
+<body>
+<div class="container">
+  <!-- Sidebar Navigation -->
+  <nav class="sidebar">
+    <div class="sidebar-header">
+      <h1><a href="index.html" style="color: white; text-decoration: none;">A N N A · X U</a></h1>
+    </div>
+    
+    <div class="nav-section">
+      <h3>Pages</h3>
+      <ul class="nav-links">
+        <li><a href="about.html"><i class="fa fa-user"></i> About</a></li>
+        <li><a href="research.html"><i class="fa fa-search"></i> Research</a></li>
+        <li><a href="datacode.html"><i class="fa fa-code"></i> Code+Data</a></li>
+        <li><a href="blog.html"><i class="fa fa-edit"></i> Blog</a></li>
+      </ul>
+    </div>
+    
+    <div class="nav-section">
+      <h3>External</h3>
+      <ul class="nav-links">
+        <li><a href="../timer/index.html"><i class="fa fa-clock-o"></i> Timer</a></li>
+        <li><a href="https://www.linkedin.com/in/anna-xu-257317275/" target="_blank"><i class="fa fa-linkedin"></i> LinkedIn</a></li>
+        <li><a href="https://github.com/anna-xu" target="_blank"><i class="fa fa-github"></i> GitHub</a></li>
+      </ul>
+    </div>
+  </nav>
+
+  <!-- Main Content Area -->
+  <main class="main-content">
+    <div class="blog-header">
+      <h1>📝 Blog</h1>
+      <h2>Thoughts on neuroscience, research, coding, and life in academia.</h2>
+    </div>
+
+    <!-- Tag Filter Section -->
+    <div class="tag-filter-section">
+      <div class="filter-label">Filter by tag:</div>
+      <div class="tag-filters">
+        <button class="tag-filter-btn active" data-tag="all">All</button>
+        <button class="tag-filter-btn" data-tag="welcome">Welcome</button>
+      </div>
+    </div>
+
+
+        <div class="blog-posts"><article class="blog-post-card"><!-- Blog Post 1 -->
+      <article class="blog-post-card">
+        <div class="post-meta">
+          <span class="post-date">December 28, 2024</span>
+          <div class="post-tags">
+            <span class="post-tag">Welcome</span>
+          </div>
+        </div>
+        <h2><a href="blog-posts/welcome.html">Welcome to My Blog!</a></h2>
+        <p class="post-excerpt">Test blog post</p>
+        <div class="post-footer">
+          <a href="blog-posts/welcome.html" class="read-more">Read more →</a>
+          <span class="read-time">3 min read</span>
+        </div>
+      </article>
+
+      <!-- Template for future posts -->
+      <!-- 
+      <article class="blog-post-card">
+        <div class="post-meta">
+          <span class="post-date">Date</span>
+          <div class="post-tags">
+            <span class="post-tag">Tag1</span>
+            <span class="post-tag">Tag2</span>
+          </div>
+        </div>
+        <h2><a href="blog-posts/post-name.html">Post Title</a></h2>
+        <p class="post-excerpt">Brief excerpt or description of the post...</p>
+        <div class="post-footer">
+          <a href="blog-posts/post-name.html" class="read-more">Read more →</a>
+          <span class="read-time">X min read</span>
+        </div>
+      </article>
+      -->
+
+    </div>
+  </main>
+</div>
+
+<footer>🐈 Website by Anna Xu · <a href="https://github.com/anna-xu/anna-xu.github.io">Click here for site code</a></footer>
+
+<script>
+document.addEventListener('DOMContentLoaded', function() {
+    initializeTagFilters();
+});
+
+function initializeTagFilters() {
+    const filterButtons = document.querySelectorAll('.tag-filter-btn');
+    const blogPosts = document.querySelectorAll('.blog-post-card');
+
+    filterButtons.forEach(button => {
+        button.addEventListener('click', function() {
+            const selectedTag = this.getAttribute('data-tag');
+            
+            // Update active button
+            filterButtons.forEach(btn => btn.classList.remove('active'));
+            this.classList.add('active');
+            
+            let firstVisibleFound = false;
+            
+            // Filter posts and handle borders
+            blogPosts.forEach(post => {
+                if (selectedTag === 'all') {
+                    post.style.display = 'block';
+                    // Remove custom border styling to let CSS handle it
+                    post.style.borderTop = '';
+                } else {
+                    const postTags = post.querySelectorAll('.post-tag');
+                    let hasTag = false;
+                    
+                    postTags.forEach(tag => {
+                        if (tag.textContent.toLowerCase() === selectedTag.toLowerCase()) {
+                            hasTag = true;
+                        }
+                    });
+                    
+                    if (hasTag) {
+                        post.style.display = 'block';
+                        // Handle border for first visible post
+                        if (!firstVisibleFound) {
+                            post.style.borderTop = 'none';
+                            firstVisibleFound = true;
+                        } else {
+                            post.style.borderTop = '1px solid rgba(255, 255, 255, 0.1)';
+                        }
+                    } else {
+                        post.style.display = 'none';
+                    }
+                }
+            });
+            
+            // Handle "All" filter - reset borders to CSS defaults
+            if (selectedTag === 'all') {
+                blogPosts.forEach((post, index) => {
+                    if (index === 0) {
+                        post.style.borderTop = 'none';
+                    } else {
+                        post.style.borderTop = '1px solid rgba(255, 255, 255, 0.1)';
+                    }
+                });
+            }
+        });
+    });
+}
+
+// Re-initialize filters when content changes (useful for dynamic updates)
+function refreshTagFilters() {
+    initializeTagFilters();
+}
+</script>
+
+</body>
+</html> 

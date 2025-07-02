@@ -1,79 +1,116 @@
+<html>
 <link rel="stylesheet" href="subpage-style.css">
 <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css">
-<title>Anna Xu</title>
+<title>Anna Xu - Code+Data</title>
+<meta name="viewport" content="width=device-width, initial-scale=1">
 
-<!--hamburger icon style menu coded with help from w3: https://www.w3schools.com/howto/howto_js_mobile_navbar.asp -->
+<body>
+<div class="container">
+  <!-- Sidebar Navigation -->
+  <nav class="sidebar">
+    <div class="sidebar-header">
+      <h1><a href="index.html" style="color: white; text-decoration: none;">A N N A · X U</a></h1>
+    </div>
+    
+    <div class="nav-section">
+      <h3>Pages</h3>
+      <ul class="nav-links">
+        <li><a href="about.html"><i class="fa fa-user"></i> About</a></li>
+        <li><a href="research.html"><i class="fa fa-search"></i> Research</a></li>
+        <li><a href="datacode.html"><i class="fa fa-code"></i> Code+Data</a></li>
+        <li><a href="blog.html"><i class="fa fa-edit"></i> Blog</a></li>
+      </ul>
+    </div>
+    
+    <div class="nav-section">
+      <h3>External</h3>
+      <ul class="nav-links">
+        <li><a href="../timer/index.html"><i class="fa fa-clock-o"></i> Timer</a></li>
+        <li><a href="https://www.linkedin.com/in/anna-xu-257317275/" target="_blank"><i class="fa fa-linkedin"></i> LinkedIn</a></li>
+        <li><a href="https://github.com/anna-xu" target="_blank"><i class="fa fa-github"></i> GitHub</a></li>
+      </ul>
+    </div>
+  </nav>
 
-<link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css">
-<header>
-<div class="topnav">
-  <div id="myLinks">
-    <br><br>
-    <a href="https://anna-xu.github.io">Home</a>
-    <a href = "about.html">About</a>
-    <a href="research.html">Research</a> 
-    <a href="datacode.html">Code+Data</a>
-    <br><br>
-    <i style="font-size:24px" class="fa">&#xf126;</i><br>
-    <a href="https://anna-xu.github.io/blog/docs/index.html">Blog</a>
-    <a href = "https://www.linkedin.com/in/anna-xu-257317275/">LinkedIn<br>
-    <a href = "https://github.com/anna-xu">GitHub</a>
-  </div>
-  <a href="javascript:void(0);" class="icon" onclick="myFunction()">
-    <i style='font-size:24px' class='fa'>&#xf036;</i>
-  </a>
-</div>
-</header>
+  <!-- Main Content Area -->
+  <main class="main-content">
+    <div style="max-width: 900px; margin: 0 auto;">
+      <h1><center>Code+Data</center></h1>
 
-<script>
-function myFunction() {
-  var x = document.getElementById("myLinks");
-  if (x.style.display === "block") {
-    x.style.display = "none";
-  } else {
-    x.style.display = "block";
-  }
-} 
-</script>
+      <div class="page-intro">
+        <p>Welcome to code/data hub! Here you'll find software tools and datasets from my research, as well as personal projects. You can go to my <a href="https://github.com/anna-xu">GitHub</a> to see more.</p>
+      </div>
 
-<!-- hamburger icon style menu end :) -->
-<div class="code section" id="code">
-<h1><center>Code+Data</center></h1>
+      <div class="content-grid">
+        <div class="content-section software-section">
+          <h2><i class="fa fa-code"></i> Software & Tools</h2>
+          
+          <div class="project-card">
+            <h3><a href="https://github.com/anna-xu/sparque">🧩 SPARQUE</a></h3>
+            <p class="project-subtitle">Software for PARcellation QUality Evaluation</p>
+            <p>A pre-alpha Python package for evaluating functional brain parcellation quality using MRI data.</p>
+            <div class="project-tags">
+              <span class="tag">Python</span>
+              <span class="tag">Neuroimaging</span>
+              <span class="tag">Brain Parcellation</span>
+            </div>
+          </div>
 
-This section contains links to software/code and data from my research (mostly human neuroimaging with MRI) that may be helpful. 
-For example, some of the human brain maps in `nifti` format under <i>Data</i> might be useful for creating masks for regional analyses or other analyses.<br><br> 
+          <div class="project-card">
+            <h3><a href="https://github.com/hypercoil/hyve">📊 Hypercoil Visualisation Engine</a></h3>
+            <p class="project-subtitle">Interactive 3D Brain Visualization</p>
+            <p>A powerful visualization engine for functional brain mapping that creates both interactive and static 3D representations. Built for researchers who need publication-ready brain visualizations.</p>
+            <div class="project-tags">
+              <span class="tag">Python</span>
+              <span class="tag">Visualization</span>
+              <span class="tag">3D Graphics</span>
+            </div>
+          </div>
 
-<center><h2>Software/Code</h2></center>
-<h3>Python Packages for MRI</h3>
-<a href="https://github.com/anna-xu/sparque"><b>Software for PARcellation QUality Evaluation</b></a><br>
-Pre-alpha release of tool for evaluating functional brain parcellation with MRI data</li><br><br>
-<a href="https://github.com/hypercoil/hyve"><b>Hypercoil Visualisation Engine</b></a><br>
-Interactive and static 3D visualisation for functional brain mapping</li>
-</div>
+          <div class="project-card">
+            <h3><a href="timer/index.html">⏱️ Interval Timer App</a></h3>
+            <p class="project-subtitle">Customizable Timer with Data Visualization</p>
+            <p>A web-based interval timer designed for workouts, study sessions, and timed activities. Features data visualization and custom intervals for timed activities.</p>
+            <div class="project-tags">
+              <span class="tag">JavaScript</span>
+              <span class="tag">Web App</span>
+              <span class="tag">Data Viz</span>
+              <span class="tag sparkle-tag">Fun ✨</span>
+            </div>
+          </div>
+        </div>
 
-<div class="data section" id="data">
-<center><h2>Data</h2></center>
-<h3>Brain Maps</h3>
+        <div class="content-section data-section">
+          <h2><i class="fa fa-database"></i> Datasets & Brain Maps</h2>
+          
+          <div class="dataset-card">
+            <h3><a href="https://midmsl.github.io">🧠 MIDMSL Dataset</a></h3>
+            <p class="dataset-subtitle">Multimodal Imaging Dataset of Motor Skill Learning</p>
+            <p>A comprehensive MRI dataset tracking neural changes during motor skill learning. Presented at OHBM 2024.</p>
+            <div class="status upcoming">📅 Coming Soon</div>
+          </div>
 
-<a href="https://midmsl.github.io"><b>MIDMSL: Multimodal Imaging Dataset of Motor Skill Learning (MRI dataset)</b></a><br>
-<small>Presented at Organization for Human Brain Mapping 2024
-  <br>
-  Data is currently not out yet, but you can click the blue title to check the MIDMSL webpage for announcements.
-</small>
+          <div class="dataset-card">
+            <h3><a href="https://neurovault.org/collections/AJKXTUXX/">🔥 Pain fMRI Meta-Analysis</a></h3>
+            <p class="dataset-subtitle">Acute Pain Brain Activation Maps</p>
+            <p>Meta-analytic brain maps from our large-scale study of pain-related activation in healthy volunteers. Includes both thresholded and unthresholded statistical maps.</p>
+            <div class="brain-figure-inline">
+              <img src="https://ars.els-cdn.com/content/image/1-s2.0-S0149763419308656-gr12.jpg" alt="Pain fMRI meta-analysis results">
+              <small>Brain activation patterns from our pain meta-analysis study</small>
+            </div>
+            <div class="publication-link">
+              <small>📄 <a href="https://www.sciencedirect.com/science/article/abs/pii/S0149763419308656">Published in Neuroscience & Biobehavioral Reviews</a></small>
+            </div>
+            <div class="status available">✅ Available</div>
+          </div>
+        </div>
+      </div>
 
-<br><br>
-
-<a href="https://neurovault.org/collections/AJKXTUXX/"><b>Experimentally-induced acute pain in healthy volunteers (fMRI meta-analysis)</b></a>
-<br>
-<small>
-  from <a href="https://www.sciencedirect.com/science/article/abs/pii/S0149763419308656"><font color="#c93ae5"><i>Convergent neural representations of experimentally-induced acute pain in healthy volunteers: A large-scale fMRI meta-analysis</i></font></a>
-  <br>
-  Thresholded and unthresholded maps of meta-analytic results available by clicking the blue title.
-  <br><br>
-</small>
-<img src ="https://ars.els-cdn.com/content/image/1-s2.0-S0149763419308656-gr12.jpg" width=35%><br>
-<small>figure from published paper in <i>Neuroscience & Biobehavioral Reviews</i></small>
-</a>
+    </div>
+  </main>
 </div>
 
 <footer>🐈 Website by Anna Xu · <a href="https://github.com/anna-xu/anna-xu.github.io">Click here for site code</a></footer>
+
+</body>
+</html>

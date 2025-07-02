@@ -1,65 +1,87 @@
+<html>
 <link rel="stylesheet" href="subpage-style.css">
-<title>Anna Xu</title>
-
-<!--hamburger icon style menu coded with help from w3: https://www.w3schools.com/howto/howto_js_mobile_navbar.asp -->
-
 <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css">
-<header>
-<div class="topnav">
-  <div id="myLinks">
-    <br><br>
-    <a href="https://anna-xu.github.io">Home</a>
-    <a href = "about.html">About</a>
-    <a href="research.html">Research</a> 
-    <a href="datacode.html">Code+Data</a>
-    <br><br>
-    <i style="font-size:24px" class="fa">&#xf126;</i><br>
-    <a href="https://anna-xu.github.io/blog/docs/index.html">Blog</a>
-    <a href = "https://www.linkedin.com/in/anna-xu-257317275/">LinkedIn<br>
-    <a href = "https://github.com/anna-xu">GitHub</a>
-  </div>
-  <a href="javascript:void(0);" class="icon" onclick="myFunction()">
-    <i style='font-size:24px' class='fa'>&#xf036;</i>
-  </a>
-</div>
-</header>
+<title>Anna Xu - Research</title>
+<meta name="viewport" content="width=device-width, initial-scale=1">
 
-<script>
-function myFunction() {
-  var x = document.getElementById("myLinks");
-  if (x.style.display === "block") {
-    x.style.display = "none";
-  } else {
-    x.style.display = "block";
-  }
-} 
-</script>
+<body>
+<div class="container">
+  <!-- Sidebar Navigation -->
+  <nav class="sidebar">
+    <div class="sidebar-header">
+      <h1><a href="index.html" style="color: white; text-decoration: none;">A N N A · X U</a></h1>
+    </div>
+    
+    <div class="nav-section">
+      <h3>Pages</h3>
+      <ul class="nav-links">
+        <li><a href="about.html"><i class="fa fa-user"></i> About</a></li>
+        <li><a href="research.html"><i class="fa fa-search"></i> Research</a></li>
+        <li><a href="datacode.html"><i class="fa fa-code"></i> Code+Data</a></li>
+        <li><a href="blog.html"><i class="fa fa-edit"></i> Blog</a></li>
+      </ul>
+    </div>
+    
+    <div class="nav-section">
+      <h3>External</h3>
+      <ul class="nav-links">
+        <li><a href="../timer/index.html"><i class="fa fa-clock-o"></i> Timer</a></li>
+        <li><a href="https://www.linkedin.com/in/anna-xu-257317275/" target="_blank"><i class="fa fa-linkedin"></i> LinkedIn</a></li>
+        <li><a href="https://github.com/anna-xu" target="_blank"><i class="fa fa-github"></i> GitHub</a></li>
+      </ul>
+    </div>
+  </nav>
 
-<!-- hamburger icon style menu end :) -->
+  <!-- Main Content Area -->
+  <main class="main-content">
 
 <center><h1>Research</h1></center>
-My current research aims to develop more <u><b>precise brain models of learning using machine learning and MRI</b></u>. <br><br>
 
-Specifically, I am reseaching neural plasticity induced by motor skill learning using a visuomotor task that can assess accuracy, adaptation, and speed in participant responses to stimuli while in an MRI scanner over many sessions (dense sampling).
-As part of my research, I am also drawn to questions related to <i>how</i> to make more precise brain models, 
-especially in relation to <u><b>the parcellation question of how to functionally divide the brain into regions</b></u>. 
-Another way to put this is how to reduce the high dimensionality of MRI scans (millions of voxels or hundreds of thousands of vertices) into a lower dimension of hundreds of parcels or regions. 
-<br><br>
-Previously, I've worked on a variety of research topics related to effort-based decision making, pain, and embodied neuroscience (e.g., proprioception, mind-body practices). 
-More about my past research experience can be found in the <a href="about.html">About</a> section.
-Journal publications from past research are listed below.
-<br><br>
-Related data, software, and code can be found in the <a href="datacode.html">Data+Code</a> section.
-<br><br>
+<div class="research-intro">
+  
+    <p>I'm investigating neural plasticity induced by motor skill learning using <em>dense sampling MRI data</em> — collecting repeated brain scans from the same individuals as they master new motor skills. This approach allows me to track how neural networks reorganize with unprecedented temporal resolution.</p>
+    
+    <p>A central challenge in this work is <strong>the parcellation question</strong>: how do we meaningfully divide the brain into functional regions? Rather than treating the brain as millions of independent voxels, I'm developing methods to identify coherent brain parcels that capture the essential patterns of learning-related plasticity.</p>
+  
+     <p>My research journey has taken me from studying <em>effort-based decision making</em> at Brown University, through developing <em>chronic pain biomarkers</em> using meta-analyses at Penn, to my current focus on <em>learning-induced brain plasticity</em> at Stanford. This evolution reflects my growing interest in understanding how the brain adapts to challenges — whether cognitive, physical, or pathological.</p>
+  
+  <div class="research-tools">
+    <p><strong>Tools & Approaches:</strong> Functional MRI, machine learning, meta-analysis, brain parcellation, dense sampling neuroimaging</p>
+    <p><strong>Explore:</strong> <a href="datacode.html">Open datasets and software tools</a> | <a href="about.html">More about my background</a></p>
+  </div>
+</div>
 
-<hr>
-<h2>Publications</h2>
-<small><i>Last updated:</i> 2024-10-04; see <a href ="https://scholar.google.com/citations?user=IqWy94gAAAAJ&hl=en">my Google Scholar</a> for most up-to-date.<br>
-* denotes co-first author; <span>&#8224;</span> denotes trainee</small><br>
+<div class="research-intro">
+  
+<p>You can view my published work below <span class="down-arrow">↓</span></p>
 
+</div>
+
+
+<div class="publications-header">
+  <h2>📚 Published Research</h2>
+  <div class="publication-info">
+    <small><i>Last updated:</i> 2024-10-04 | See <a href ="https://scholar.google.com/citations?user=IqWy94gAAAAJ&hl=en">Google Scholar</a> for most current<br>
+    * denotes co-first author; <span>&#8224;</span> denotes trainee</small>
+  </div>
+  
+  <div class="year-filters">
+    <span class="filter-label">Filter by year:</span>
+    <button class="year-btn active" data-year="all">All Years</button>
+    <button class="year-btn" data-year="preprints">Preprints</button>
+    <button class="year-btn" data-year="2023">2023</button>
+    <button class="year-btn" data-year="2022">2022</button>
+    <button class="year-btn" data-year="2021">2021</button>
+    <button class="year-btn" data-year="2020">2020</button>
+    <button class="year-btn" data-year="2019">2019</button>
+    <button class="year-btn" data-year="2018">2018</button>
+  </div>
+</div>
+
+<div class="publication-year" data-year="preprints">
 <h3>Preprints</h3>
 
-<b>Do you ever get tired of being wrong? The unique impact of feedback on subjective experiences of effort-based decision-making.</b><br>
+<b>Do you ever get tired of being wrong? The unique impact of feedback on subjective experiences of effort-based decision-making.</b> PsyRxiv<br>
 [<a href="https://osf.io/preprints/psyarxiv/5jekt">Preprint</a>] [<a href="https://github.com/anna-xu/hgt">Code</a>]<br>
 <i><small><b>Anna Xu</b>, Romy Frömer, Wanja Wolff, and Amitai Shenhav</small></i><br>
 <details>
@@ -72,7 +94,7 @@ Related data, software, and code can be found in the <a href="datacode.html">Dat
   </details>
 <br>
 
-<b>hyve, a compositional visualisation engine for brain imaging data.</b><br>
+<b>hyve, a compositional visualisation engine for brain imaging data.</b> BioRxiv<br>
 [<a href="https://www.ncbi.nlm.nih.gov/pmc/articles/PMC11042383/">Preprint</a>] [<a href="https://github.com/hypercoil/hyve">Code</a>]<br>
 <i><small>Rastko Ćirić, <b>Anna Xu</b>, Russell Alan Poldrack</small></i><br>
 <details>
@@ -85,6 +107,9 @@ Related data, software, and code can be found in the <a href="datacode.html">Dat
   </details>
 <br>
 
+</div>
+
+<div class="publication-year" data-year="2023">
 <h3>2023</h3>
 <b>Structural imaging studies of patients with chronic pain: an anatomic likelihood estimate meta-analysis.</b> <i>PAIN</i>.<br>
 [<a href="https://europepmc.org/article/med/35560117">Link</a>] [<a href="https://github.com/PennLINC/sMRI_ChronicPain">Code</a>]<br>
@@ -99,6 +124,9 @@ Related data, software, and code can be found in the <a href="datacode.html">Dat
   </details>
 <br>
 
+</div>
+
+<div class="publication-year" data-year="2022">
 <h3>2022</h3>
 <b>Decision value signals in the ventromedial prefrontal cortex and motivational and hedonic symptoms across mood and psychotic disorders. </b><i>Neuroimage: Clinical.</i><br>
 [<a href="https://www.sciencedirect.com/science/article/pii/S2213158222002923">Link</a>] [<a href="https://www.biorxiv.org/content/10.1101/2020.12.01.407197.abstract">Preprint</a>]<br>
@@ -113,6 +141,9 @@ Related data, software, and code can be found in the <a href="datacode.html">Dat
   </details>
 <br>
 
+</div>
+
+<div class="publication-year" data-year="2021">
 <h3>2021</h3>
 
 <b>Brain responses to noxious stimuli in patients with chronic pain: A systematic review and meta-analysis.</b> <i>JAMA Network Open</i>.<br>
@@ -142,6 +173,9 @@ Related data, software, and code can be found in the <a href="datacode.html">Dat
   </details>
 <br>
 
+</div>
+
+<div class="publication-year" data-year="2020">
 <h3>2020</h3>
 
 <b>Convergent neural representations of experimentally-induced acute pain in healthy volunteers: A large-scale fMRI meta-analysis.</b> <i>Neuroscience & Biobehavioral Reviews</i>.<br>
@@ -176,6 +210,9 @@ Related data, software, and code can be found in the <a href="datacode.html">Dat
   </details>
 <br>
 
+</div>
+
+<div class="publication-year" data-year="2019">
 <h3>2019</h3>
 
 <b>Epidemiology of chronic pain in Ukraine: findings from the World Mental Health Survey.</b> <i>PLoS ONE</i>.<br>
@@ -191,6 +228,9 @@ Related data, software, and code can be found in the <a href="datacode.html">Dat
   </details>
 <br>
 
+</div>
+
+<div class="publication-year" data-year="2018">
 <h3>2018</h3>
 
 <b>Comparing embodiment experiences in expert meditators and non-meditators using the rubber hand illusion.</b> <i>Consciousness and Cognition</i>.<br>
@@ -205,7 +245,47 @@ Related data, software, and code can be found in the <a href="datacode.html">Dat
     </p>
   </details>
 <br>
-
-</a>
+</div>
+  </main>
+</div>
 
 <footer>🐈 Website by Anna Xu · <a href="https://github.com/anna-xu/anna-xu.github.io">Click here for site code</a></footer>
+
+<script>
+document.addEventListener('DOMContentLoaded', function() {
+    const yearButtons = document.querySelectorAll('.year-btn');
+    const publicationYears = document.querySelectorAll('.publication-year');
+    
+    // Add click event listeners to all year buttons
+    yearButtons.forEach(button => {
+        button.addEventListener('click', function() {
+            const targetYear = this.getAttribute('data-year');
+            
+            // Remove active class from all buttons
+            yearButtons.forEach(btn => btn.classList.remove('active'));
+            
+            // Add active class to clicked button
+            this.classList.add('active');
+            
+            // Show/hide publication years based on selection
+            publicationYears.forEach(yearDiv => {
+                const yearValue = yearDiv.getAttribute('data-year');
+                
+                if (targetYear === 'all') {
+                    // Show all publications
+                    yearDiv.classList.remove('hidden');
+                } else if (yearValue === targetYear) {
+                    // Show matching year
+                    yearDiv.classList.remove('hidden');
+                } else {
+                    // Hide non-matching years
+                    yearDiv.classList.add('hidden');
+                }
+            });
+        });
+    });
+});
+</script>
+
+</body>
+</html>
