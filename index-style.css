@@ -21,7 +21,7 @@ a {
 }
 
 a:hover {
-  color: #DDA0DD;
+  color: #B8860B;
   text-decoration: underline;
   text-shadow: 1px 1px 3px rgba(0, 0, 0, 0.9);
 }
@@ -40,7 +40,6 @@ h2{
   font-family: 'Source Sans Pro', sans-serif;
   font-weight: 500;
   color: #ffffff;
-  text-shadow: 1px 1px 3px rgba(0, 0, 0, 0.7);
 } 
 
 /* Container and Layout */
@@ -75,7 +74,7 @@ h2{
 }
 
 .nav-section h3 {
-  color: #DDA0DD;
+  color: #B8860B;
   font-family: 'Source Sans Pro', sans-serif;
   font-weight: 600;
   font-size: 1rem;
@@ -108,8 +107,8 @@ h2{
 }
 
 .nav-links a:hover {
-  background: rgba(221, 160, 221, 0.2);
-  color: #DDA0DD;
+  background: rgb(5, 45, 21);
+  color: #B8860B;
   text-decoration: none;
   transform: translateX(5px);
 }
@@ -153,8 +152,13 @@ h2{
 
 /* New main page content styling */
 .intro-content {
+  background-color: rgba(0, 0, 0, 0.292);
+  padding: 1rem;
+  border-radius: 8px;
+  margin: 1rem 0;
+  font-size: 1.1rem;
   max-width: 800px;
-  text-align: left;
+  text-align: center;
 }
 
 .intro-content > p {
@@ -209,7 +213,7 @@ h2{
 }
 
 .timer-callout h3 {
-  color: #DDA0DD;
+  color: #B8860B;
   margin-bottom: 0.5rem;
   font-size: 1.6rem;
   font-weight: 600;
@@ -295,7 +299,7 @@ h2{
 }
 
 .cta-section a {
-  color: #DDA0DD;
+  color: #B8860B;
   font-weight: 600;
   text-decoration: underline;
 }
@@ -305,20 +309,12 @@ h2{
   text-shadow: 1px 1px 3px rgba(0, 0, 0, 0.9);
 }
 
-/* Responsive adjustments for timer spotlight */
 @media (max-width: 768px) {
   .timer-callout {
     padding: 1.2rem;
     max-width: 100%;
   }
   
-  .timer-callout h3 {
-    font-size: 1.2rem;
-  }
-  
-  .timer-callout p {
-    font-size: 0.95rem;
-  }
   
   .update-date {
     font-size: 0.8rem;
@@ -357,7 +353,6 @@ h2{
   }
   
   .intro-content > p {
-    font-size: 1.1rem;
   }
   
   .cta-section {

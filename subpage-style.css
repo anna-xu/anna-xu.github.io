@@ -21,11 +21,9 @@ body {
   }
   
   a:hover {
-    color: #DDA0DD;
+    color: #B8860B;
     text-decoration: underline; 
   }
-
-/* --hamburger icon style menu coded with help from w3: https://www.w3schools.com/howto/howto_js_mobile_navbar.asp */
 
 .topnav {
     overflow: visible;
@@ -54,7 +52,7 @@ body {
   }
   
   .topnav a:hover {
-    color: #DDA0DD;
+    color: #B8860B;
     font-style: normal; 
   }
 
@@ -121,25 +119,13 @@ h3{
   overflow-y: auto;
 }
 
-nav.sidebar .sidebar-header h1 {
-  text-align: left !important;
-  margin-bottom: 1.5rem !important;
-  padding-bottom: 0.75rem !important;
-  border-bottom: 1px solid rgba(255, 255, 255, 0.2) !important;
-  font-size: 1.4rem !important;
-  line-height: 1.2 !important;
-  font-family: 'Crimson Text', Georgia, serif !important;
-  color: #ffffff !important;
-  font-weight: 600 !important;
-  letter-spacing: 1px !important;
-}
-
-nav.sidebar .sidebar-header h1 a {
-  color: white !important;
-  text-decoration: none !important;
-  font-size: inherit !important;
-  font-family: inherit !important;
-  font-weight: inherit !important;
+.sidebar-header h1 {
+  text-align: left;
+  margin-bottom: 1.5rem;
+  padding-bottom: 0.75rem;
+  border-bottom: 1px solid rgba(255, 255, 255, 0.2);
+  font-size: 1.4rem;
+  line-height: 1.2;
 }
 
 .nav-section {
@@ -147,7 +133,7 @@ nav.sidebar .sidebar-header h1 a {
 }
 
 .nav-section h3 {
-  color: #DDA0DD;
+  color: #B8860B;
   font-family: 'Source Sans Pro', sans-serif;
   font-weight: 600;
   font-size: 1rem;
@@ -180,15 +166,10 @@ nav.sidebar .sidebar-header h1 a {
 }
 
 .nav-links a:hover {
-  background: rgba(221, 160, 221, 0.2);
-  color: #DDA0DD;
+  background: rgb(5, 45, 21);
+  color: #B8860B;
   text-decoration: none;
   transform: translateX(5px);
-}
-
-.nav-links a.active {
-  background: rgba(221, 160, 221, 0.3);
-  color: #DDA0DD;
 }
 
 .nav-links a i {
@@ -201,10 +182,10 @@ nav.sidebar .sidebar-header h1 a {
 .main-content {
   flex: 1;
   margin-left: 170px;
-  padding: 2rem 2rem 4rem 4rem;
-  max-width: none;
+  padding: 2rem 1rem 4rem 4rem;
+  max-width: 1200px;
+  margin-right: auto;
   text-align: left;
-  width: calc(100vw - 170px - 6rem);
   box-sizing: border-box;
 }
 
@@ -286,7 +267,7 @@ nav.sidebar h1, nav.sidebar h2, nav.sidebar h3 {
   text-align: center;
   margin: 1.5rem 0 2rem 0;
   font-size: 1.1rem;
-  color: #DDA0DD;
+  color: #B8860B;
   font-weight: 500;
 }
 
@@ -323,55 +304,28 @@ nav.sidebar h1, nav.sidebar h2, nav.sidebar h3 {
   margin-bottom: 3rem;
   font-weight: 400;
   letter-spacing: 0.3px;
-  border-left: 3px solid #DDA0DD;
+  border-left: 3px solid #B8860B;
   padding-left: 1.5rem;
   background: rgba(221, 160, 221, 0.05);
   padding: 1.5rem;
   border-radius: 8px;
-  border-left: 4px solid #DDA0DD;
-}
-
-.research-current, .research-trajectory {
-  margin: 2.5rem 0;
+  border-left: 4px solid #B8860B;
 }
 
 .research-current h3, .research-trajectory h3 {
-  color: #DDA0DD;
+  color: #B8860B;
   font-size: 1.4rem;
   margin-bottom: 1.2rem;
   font-weight: 600;
-  border-bottom: 2px solid rgba(221, 160, 221, 0.3);
+  border-bottom: 2px solid #B8860B;
   padding-bottom: 0.5rem;
 }
 
-.research-current p, .research-trajectory p {
-  margin-bottom: 1.5rem;
-  font-size: 1.05rem;
-  line-height: 1.8;
-}
-
-.research-tools {
-  margin-top: 3rem;
-  padding: 1.5rem;
-  background: rgba(255, 255, 255, 0.02);
-  border-radius: 8px;
-  border: 1px solid rgba(255, 255, 255, 0.1);
-}
-
-.research-tools p {
-  margin: 0.8rem 0;
-  font-size: 1rem;
-}
-
-.research-tools strong {
-  color: #DDA0DD;
-  font-weight: 600;
-}
 
 /* Publication styling */
 .main-content h3 {
-  color: #DDA0DD;
-  border-bottom: 2px solid rgba(221, 160, 221, 0.3);
+  color: #B8860B;
+  border-bottom: 2px solid #B8860B;
   padding-bottom: 0.5rem;
   margin-top: 2rem;
 }
@@ -394,7 +348,7 @@ nav.sidebar h1, nav.sidebar h2, nav.sidebar h3 {
 
 .main-content details summary {
   cursor: pointer;
-  color: #DDA0DD;
+  color: #B8860B;
   font-weight: 500;
   padding: 0.5rem;
 }
@@ -465,22 +419,18 @@ nav.sidebar h1, nav.sidebar h2, nav.sidebar h3 {
   align-items: center;
   gap: 0.8rem;
   margin-top: 1.5rem;
-  padding: 1rem;
-  background: rgba(255, 255, 255, 0.02);
-  border-radius: 8px;
-  border: 1px solid rgba(255, 255, 255, 0.1);
+  padding: 1rem 6.5rem;
 }
 
 .filter-label {
-  color: #DDA0DD;
+  color: #B8860B;
   font-weight: 600;
-  font-size: 0.95rem;
 }
 
 .year-btn {
   background: rgba(221, 160, 221, 0.1);
-  border: 1px solid rgba(221, 160, 221, 0.3);
-  color: #DDA0DD;
+  border: 1px solid #B8860B;
+  color: #B8860B;
   padding: 0.5rem 1rem;
   border-radius: 20px;
   font-size: 0.85rem;
@@ -490,14 +440,14 @@ nav.sidebar h1, nav.sidebar h2, nav.sidebar h3 {
 }
 
 .year-btn:hover {
-  background: rgba(221, 160, 221, 0.2);
-  border-color: rgba(221, 160, 221, 0.5);
+  background: #b8870b3b;
+  border-color: #b8870b70;
   transform: translateY(-1px);
 }
 
 .year-btn.active {
-  background: rgba(221, 160, 221, 0.3);
-  border-color: rgba(221, 160, 221, 0.6);
+  background: #B8860B;
+  border-color: #b8870b70;
   color: #ffffff;
   font-weight: 600;
 }
@@ -554,8 +504,8 @@ nav.sidebar h1, nav.sidebar h2, nav.sidebar h3 {
 }
 
 .content-section h2 {
-  color: #DDA0DD;
-  border-bottom: 2px solid rgba(221, 160, 221, 0.3);
+  color: #B8860B;
+  border-bottom: 2px solid #B8860B;
   padding-bottom: 0.5rem;
   margin-bottom: 1.5rem;
   display: flex;
@@ -564,8 +514,8 @@ nav.sidebar h1, nav.sidebar h2, nav.sidebar h3 {
 }
 
 .project-card, .dataset-card {
-  background: rgba(221, 160, 221, 0.05);
-  border: 1px solid rgba(221, 160, 221, 0.2);
+  background: #1c6d4c14;
+  border: 0.5px solid #008f5331;
   border-radius: 12px;
   padding: 1.5rem;
   margin-bottom: 1.5rem;
@@ -573,8 +523,8 @@ nav.sidebar h1, nav.sidebar h2, nav.sidebar h3 {
 }
 
 .project-card:hover, .dataset-card:hover {
-  background: rgba(221, 160, 221, 0.08);
-  border-color: rgba(221, 160, 221, 0.3);
+  background: #313735af; 
+  border-color: #4d5c564b;
   transform: translateY(-3px);
   box-shadow: 0 6px 20px rgba(221, 160, 221, 0.1);
 }
@@ -585,17 +535,17 @@ nav.sidebar h1, nav.sidebar h2, nav.sidebar h3 {
 }
 
 .project-card h3 a, .dataset-card h3 a {
-  color: #DDA0DD;
+  color: #B8860B;
   text-decoration: none;
 }
 
 .project-card h3 a:hover, .dataset-card h3 a:hover {
-  color: #E6B3E6;
+  color: #02ef69;
   text-decoration: underline;
 }
 
 .project-subtitle, .dataset-subtitle {
-  color: #b8b8b8;
+  color: #008f534b;
   font-size: 0.9rem;
   font-style: italic;
   margin-bottom: 1rem;
@@ -609,8 +559,8 @@ nav.sidebar h1, nav.sidebar h2, nav.sidebar h3 {
 }
 
 .tag {
-  background: rgba(221, 160, 221, 0.2);
-  color: #DDA0DD;
+  background: #008f534b;
+  border-color: #008f5380;
   padding: 0.3rem 0.8rem;
   border-radius: 15px;
   font-size: 0.8rem;
@@ -618,7 +568,7 @@ nav.sidebar h1, nav.sidebar h2, nav.sidebar h3 {
 }
 
 .sparkle-tag {
-  background: linear-gradient(45deg, rgba(221, 160, 221, 0.3), rgba(255, 215, 0, 0.2));
+  background: linear-gradient(45deg, #B8860B, rgba(255, 215, 0, 0.2));
   color: #FFD700;
   border: 1px solid rgba(255, 215, 0, 0.4);
   animation: sparkle-glow 2s ease-in-out infinite;
@@ -715,7 +665,7 @@ nav.sidebar h1, nav.sidebar h2, nav.sidebar h3 {
 }
 
 .collaboration-section h3 {
-  color: #DDA0DD;
+  color: #B8860B;
   margin-bottom: 1rem;
 }
 
@@ -761,13 +711,13 @@ nav.sidebar h1, nav.sidebar h2, nav.sidebar h3 {
 
 @media (max-width: 1200px) {
   .main-content {
-    padding: 2rem 1.5rem 4rem 3rem;
+    padding: 2rem 1rem 4rem 3rem;
   }
 }
 
 @media (max-width: 900px) {
   .main-content {
-    padding: 1.5rem 1rem 3rem 2.5rem;
+    padding: 1.5rem 0.5rem 3rem 2.5rem;
   }
   
   .main-content h1 {
@@ -801,7 +751,7 @@ nav.sidebar h1, nav.sidebar h2, nav.sidebar h3 {
   
   .main-content {
     margin-left: 0;
-    padding: 1.5rem 1rem 3rem 2rem;
+    padding: 1.5rem 0.5rem 3rem 2rem;
     max-width: 100%;
     width: 100%;
   }
@@ -839,7 +789,7 @@ nav.sidebar h1, nav.sidebar h2, nav.sidebar h3 {
 }
 
 .filter-label {
-  color: #DDA0DD;
+  color: #B8860B;
   font-weight: 500;
   margin-bottom: 1rem;
   font-size: 1rem;
@@ -867,13 +817,13 @@ nav.sidebar h1, nav.sidebar h2, nav.sidebar h3 {
 .tag-filter-btn:hover {
   background: rgba(221, 160, 221, 0.2);
   border-color: rgba(221, 160, 221, 0.5);
-  color: #DDA0DD;
+  color: #B8860B;
 }
 
 .tag-filter-btn.active {
-  background: rgba(221, 160, 221, 0.3);
-  border-color: #DDA0DD;
-  color: #DDA0DD;
+  background: #B8860B;
+  border-color: #B8860B;
+  color: #B8860B;
 }
 
 .blog-posts {
@@ -924,11 +874,11 @@ nav.sidebar h1, nav.sidebar h2, nav.sidebar h3 {
 
 .post-tag {
     background: rgba(221, 160, 221, 0.2);
-    color: #DDA0DD;
+    color: #B8860B;
     padding: 0.3rem 0.8rem;
     border-radius: 20px;
     font-size: 0.8rem;
-    border: 1px solid rgba(221, 160, 221, 0.3);
+    border: 1px solid #B8860B;
 }
 
 .blog-post-card h2 {
@@ -943,7 +893,7 @@ nav.sidebar h1, nav.sidebar h2, nav.sidebar h3 {
 }
 
 .blog-post-card h2 a:hover {
-    color: #DDA0DD;
+    color: #B8860B;
 }
 
 .post-excerpt {
@@ -959,7 +909,7 @@ nav.sidebar h1, nav.sidebar h2, nav.sidebar h3 {
 }
 
 .read-more {
-    color: #DDA0DD;
+    color: #B8860B;
     text-decoration: none;
     font-weight: 500;
     transition: all 0.3s ease;
@@ -1028,7 +978,7 @@ body:has(.blog-post) .main-content,
 }
 
 .blog-post-content .post-date {
-    color: #DDA0DD;
+    color: #B8860B;
     font-size: 0.9rem;
     font-weight: 500;
 }
@@ -1042,11 +992,11 @@ body:has(.blog-post) .main-content,
 
 .blog-post-content .post-tag {
     background: rgba(221, 160, 221, 0.2);
-    color: #DDA0DD;
+    color: #B8860B;
     padding: 0.3rem 0.8rem;
     border-radius: 12px;
     font-size: 0.8rem;
-    border: 1px solid rgba(221, 160, 221, 0.3);
+    border: 1px solid #B8860B;
 }
 
 /* Ensure the h1 inside blog content is centered */
@@ -1062,7 +1012,7 @@ body:has(.blog-post) .main-content,
     font-family: 'Crimson Text', serif;
     font-size: 1.8rem;
     margin: 2rem 0 1rem 0;
-    border-bottom: 2px solid rgba(221, 160, 221, 0.3);
+    border-bottom: 2px solid #B8860B;
     padding-bottom: 0.5rem;
 }
 
@@ -1093,7 +1043,7 @@ body:has(.blog-post) .main-content,
 }
 
 .blog-post-content a {
-    color: #DDA0DD;
+    color: #B8860B;
     text-decoration: none;
     transition: color 0.3s ease;
 }
@@ -1125,18 +1075,18 @@ body:has(.blog-post) .main-content,
 }
 
 .back-to-blog {
-    color: #DDA0DD;
+    color: #B8860B;
     text-decoration: none;
     font-weight: 500;
     padding: 0.8rem 1.5rem;
-    border: 1px solid #DDA0DD;
+    border: 1px solid #B8860B;
     border-radius: 8px;
     transition: all 0.3s ease;
     display: inline-block;
 }
 
 .back-to-blog:hover {
-    background: #DDA0DD;
+    background: #B8860B;
     color: #1a1a1a;
     transform: translateY(-2px);
 }
@@ -1195,13 +1145,14 @@ padding: 0 !important;
 
 footer {
   position:fixed;
-  color: #e5733a; 
+  color: white; 
   bottom: 0;
+  right: 20;
   width: 100%;
   height: 4%;
   text-align: right;
-  font-family: 'Source Sans Pro', sans-serif;
+  font-family: 'Inter', sans-serif;
   font-size: 12px;
-  right: 100;
+  font-style: italic;
   z-index: 1000;
 }
