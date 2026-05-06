@@ -1,163 +1,96 @@
-<html>
-<link rel="stylesheet" href="subpage-style.css">
-<link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css">
-<title>Anna Xu - Blog</title>
-<meta name="viewport" content="width=device-width, initial-scale=1">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>AX</title>
+  <link rel="stylesheet" href="subpage-style.css">
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css">
+  <link href="https://fonts.googleapis.com/css2?family=Playfair+Display:ital,wght@0,400;1,400&family=DM+Sans:wght@300;400&display=swap" rel="stylesheet" />
+  <style>
+    *, *::before, *::after { box-sizing: border-box; margin: 0; padding: 0; }
+    /* body {
+      font-family: 'DM Sans', sans-serif;
+      background: #faf9f7;
+      color: #1a1a18;
+      max-width: 640px;
+      margin: 0 auto;
+      padding: 4rem 1.5rem;
+    } */
+    header { margin-bottom: 3.5rem; }
+    /* h1 {
+      font-family: 'Playfair Display', serif;
+      font-size: 1.6rem;
+      font-weight: 400;
+      letter-spacing: -0.02em;
+    } */
+    h1 em { color: #d94b4b; }
+    .post { padding: 1.75rem 0; border-top: 1px dashed #d94b4b; }
+    .post:last-child { border-bottom: 1px dashed #d94b4b; }
+    .post-date {
+      font-size: 0.75rem;
+      color: #9a9a93;
+      margin-bottom: 0.4rem;
+    }
+    .post-title {
+      font-family: 'Georgia', serif;
+      font-size: 1.15rem;
+      font-weight: 400;
+      line-height: 1.35;
+      letter-spacing: -0.01em;
+      margin-bottom: 0.5rem;
+    }
+    .post-title a { text-decoration: none; color: #FF7F11; }
+    .post-title a:hover { text-decoration: underline; text-underline-offset: 3px; color: #ACBFA4}
+    .post-excerpt {
+      font-size: 0.9rem;
+      font-weight: 300;
+      color: #F8EDED;
+      line-height: 1.7;
+    }
+  </style>
 
+</head>
 <body>
-<div class="container">
-  <!-- Sidebar Navigation -->
-  <nav class="sidebar">
-    <div class="sidebar-header">
-      <h1><a href="index.html" style="color: white; text-decoration: none;">A N N A · X U</a></h1>
+
+<!-- Hamburger button (only visible on mobile) -->
+<button class="hamburger" onclick="toggleSidebar()">&#9776;</button>
+
+<!-- Dark overlay behind sidebar on mobile -->
+<div class="overlay" id="overlay" onclick="toggleSidebar()"></div>
+
+  <nav class="sidebar" id="sidebar">
+
+      <div class="sidebar-nav">
+    <div class="sidebar-title"><a href="index.html">AX</a></div>
+      <a href="about.html">About</a>
+      <a href="datacode.html">Code+Data</a>
+      <a href="blog.html">Blog</a>
     </div>
-    
-    <div class="nav-section">
-      <h3>Pages</h3>
-      <ul class="nav-links">
-        <li><a href="about.html"><i class="fa fa-user"></i> About</a></li>
-        <li><a href="research.html"><i class="fa fa-search"></i> Research</a></li>
-        <li><a href="datacode.html"><i class="fa fa-code"></i> Code+Data</a></li>
-        <li><a href="blog.html"><i class="fa fa-edit"></i> Blog</a></li>
-      </ul>
-    </div>
-    
-    <div class="nav-section">
-      <h3>External</h3>
-      <ul class="nav-links">
-        <li><a href="https://www.linkedin.com/in/anna-xu-257317275/" target="_blank"><i class="fa fa-linkedin"></i> LinkedIn</a></li>
-        <li><a href="https://github.com/anna-xu" target="_blank"><i class="fa fa-github"></i> GitHub</a></li>
-      </ul>
-    </div>
+    <div class="sidebar-nav-footer">🐈 <a href="https://github.com/anna-xu/anna-xu.github.io"><u>Site Code</u></a></div>
+
   </nav>
 
-  <!-- Main Content Area -->
-  <main class="main-content">
-    <div class="blog-header">
-      <h1>📝 Blog</h1>
-      <h2>(topics tbd)</h2>
-    </div>
 
-    <!-- Tag Filter Section -->
-    <div class="tag-filter-section">
-      <div class="filter-label">Filter by tag:</div>
-      <div class="tag-filters">
-        <button class="tag-filter-btn active" data-tag="all">All</button>
-        <button class="tag-filter-btn" data-tag="welcome">Welcome</button>
-      </div>
-    </div>
+<body>
 
+<main>
 
-        <div class="blog-posts"><article class="blog-post-card"><!-- Blog Post 1 -->
-      <article class="blog-post-card">
-        <div class="post-meta">
-          <span class="post-date">July 01, 2025</span>
-          <div class="post-tags">
-            <span class="post-tag">Welcome</span>
-          </div>
-        </div>
-        <h2><a href="blog-posts/welcome.html">Welcome to My Blog!</a></h2>
-        <p class="post-excerpt">Test blog post</p>
-        <div class="post-footer">
-          <a href="blog-posts/welcome.html" class="read-more">Read more →</a>
-          <span class="read-time">3 min read</span>
-        </div>
-      </article>
+  <article class="post">
+    <div class="post-date">May 5, 2026</div>
+    <div class="post-title"><a href="firstPost.html">First blog post</a></div>
+    <p class="post-excerpt">Welcome to the blog section. I'm not sure what exactly I will blog yet, but it'll likely be a mix of research, data, and/or nature stuff. Stay tuned if you'd like to read more! In the meantime, here's <a href=firstPost.html><font size=3>...</font></a></p>
+  </article>
 
-      <!-- Template for future posts -->
-      <!-- 
-      <article class="blog-post-card">
-        <div class="post-meta">
-          <span class="post-date">Date</span>
-          <div class="post-tags">
-            <span class="post-tag">Tag1</span>
-            <span class="post-tag">Tag2</span>
-          </div>
-        </div>
-        <h2><a href="blog-posts/post-name.html">Post Title</a></h2>
-        <p class="post-excerpt">Brief excerpt or description of the post...</p>
-        <div class="post-footer">
-          <a href="blog-posts/post-name.html" class="read-more">Read more →</a>
-          <span class="read-time">X min read</span>
-        </div>
-      </article>
-      -->
-
-    </div>
-  </main>
-</div>
-
-<footer>🐈 Website by Anna Xu · <a href="https://github.com/anna-xu/anna-xu.github.io">Click here for site code</a></footer>
+</main>
 
 <script>
-document.addEventListener('DOMContentLoaded', function() {
-    initializeTagFilters();
-});
-
-function initializeTagFilters() {
-    const filterButtons = document.querySelectorAll('.tag-filter-btn');
-    const blogPosts = document.querySelectorAll('.blog-post-card');
-
-    filterButtons.forEach(button => {
-        button.addEventListener('click', function() {
-            const selectedTag = this.getAttribute('data-tag');
-            
-            // Update active button
-            filterButtons.forEach(btn => btn.classList.remove('active'));
-            this.classList.add('active');
-            
-            let firstVisibleFound = false;
-            
-            // Filter posts and handle borders
-            blogPosts.forEach(post => {
-                if (selectedTag === 'all') {
-                    post.style.display = 'block';
-                    // Remove custom border styling to let CSS handle it
-                    post.style.borderTop = '';
-                } else {
-                    const postTags = post.querySelectorAll('.post-tag');
-                    let hasTag = false;
-                    
-                    postTags.forEach(tag => {
-                        if (tag.textContent.toLowerCase() === selectedTag.toLowerCase()) {
-                            hasTag = true;
-                        }
-                    });
-                    
-                    if (hasTag) {
-                        post.style.display = 'block';
-                        // Handle border for first visible post
-                        if (!firstVisibleFound) {
-                            post.style.borderTop = 'none';
-                            firstVisibleFound = true;
-                        } else {
-                            post.style.borderTop = '1px solid rgba(255, 255, 255, 0.1)';
-                        }
-                    } else {
-                        post.style.display = 'none';
-                    }
-                }
-            });
-            
-            // Handle "All" filter - reset borders to CSS defaults
-            if (selectedTag === 'all') {
-                blogPosts.forEach((post, index) => {
-                    if (index === 0) {
-                        post.style.borderTop = 'none';
-                    } else {
-                        post.style.borderTop = '1px solid rgba(255, 255, 255, 0.1)';
-                    }
-                });
-            }
-        });
-    });
-}
-
-// Re-initialize filters when content changes (useful for dynamic updates)
-function refreshTagFilters() {
-    initializeTagFilters();
-}
+  function toggleSidebar() {
+    const sidebar = document.getElementById('sidebar');
+    const overlay = document.getElementById('overlay');
+    sidebar.classList.toggle('open');
+    overlay.classList.toggle('active');
+  }
 </script>
 
+
 </body>
-</html> 
+</html>

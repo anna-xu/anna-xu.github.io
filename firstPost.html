@@ -1,0 +1,73 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>AX</title>
+  <link rel="stylesheet" href="subpage-style.css">
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css">
+  <link href="https://fonts.googleapis.com/css2?family=Playfair+Display:ital,wght@0,400;1,400&family=DM+Sans:wght@300;400&display=swap" rel="stylesheet" />
+  <style>
+    *, *::before, *::after { box-sizing: border-box; margin: 0; padding: 0; }
+    header { margin-bottom: 3.5rem; }
+    h1 em { color: #d94b4b; }
+    .post-header { padding: 2rem 0 1.5rem; border-bottom: 1px dashed #d94b4b; margin-bottom: 2rem; }
+    .post-date { font-size: 0.75rem; color: #9a9a93; margin-bottom: 0.5rem; }
+    .post-title {
+      font-family: 'Georgia', serif;
+      font-size: 1.8rem;
+      font-weight: 400;
+      line-height: 1.25;
+      letter-spacing: -0.02em;
+    }
+    .post-body p { font-size: 0.95rem; font-weight: 300; color: #F8EDED; line-height: 1.8; margin-bottom: 1.2rem; }
+    .post-body h2 { font-family: 'Georgia', serif; font-size: 1.3rem; font-weight: 400; margin: 2rem 0 0.75rem; }
+    .post-body h3 { font-size: 1rem; font-weight: 400; margin: 1.5rem 0 0.5rem; color: #9a9a93; }
+    .post-body pre { background: #1e1e1e; padding: 1rem; border-radius: 4px; overflow-x: auto; margin-bottom: 1.2rem; }
+    .post-body code { font-family: monospace; font-size: 0.85rem; color: #f8f8f2; }
+    .post-body a { color: #FF7F11; }
+    .post-body a:hover { color: #ACBFA4; }
+    .back-link { display: inline-block; margin-top: 2.5rem; font-size: 0.8rem; color: #9a9a93; text-decoration: none; }
+    .back-link:hover { color: #FF7F11; }
+  </style>
+</head>
+<body>
+
+<button class="hamburger" onclick="toggleSidebar()">&#9776;</button>
+<div class="overlay" id="overlay" onclick="toggleSidebar()"></div>
+
+<nav class="sidebar" id="sidebar">
+  <div class="sidebar-nav">
+  <div class="sidebar-title"><a href="index.html">AX</a></div>
+    <a href="about.html">About</a>
+    <a href="datacode.html">Code+Data</a>
+    <a href="blog.html">Blog</a>
+  </div>
+  <div class="sidebar-nav-footer">🐈 <a href="https://github.com/anna-xu/anna-xu.github.io"><u>Site Code</u></a></div>
+</nav>
+
+<main>
+  <div class="post-header">
+    <div class="post-date">May 5, 2026</div>
+    <div class="post-title">First blog post</div>
+  </div>
+  <div class="post-body">
+<p>Welcome to the blog section. I'm not sure what exactly I will blog yet, but it'll likely be a mix of research, data, and/or nature stuff. Stay tuned if you'd like to read more! In the meantime, here's a picture of one of my favorite places in the Bay Area -- Mori Point.</p>
+<br><br>
+<center><img src="photos/ocean.JPG" width="400"></center>
+  </div>
+  <a class="back-link" href="blog.html">← Back to blog</a>
+</main>
+</body>
+
+<script>
+  function toggleSidebar() {
+    const sidebar = document.getElementById('sidebar');
+    const overlay = document.getElementById('overlay');
+    sidebar.classList.toggle('open');
+    overlay.classList.toggle('active');
+  }
+</script>
+
+
+</html>

@@ -1,61 +1,115 @@
-<html>
-<link rel="stylesheet" href="subpage-style.css">
-<link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css">
-<title>Anna Xu - About</title>
-<meta name="viewport" content="width=device-width, initial-scale=1">
-
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>AX</title>
+  <link rel="stylesheet" href="subpage-style.css">
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css">
+</head>
 <body>
-<div class="container">
-  <!-- Sidebar Navigation -->
-  <nav class="sidebar">
-    <div class="sidebar-header">
-      <h1><a href="index.html" style="color: #8fddb2; text-decoration: none;">A N N A · X U</a></h1>
+
+<!-- Hamburger button (only visible on mobile) -->
+<button class="hamburger" onclick="toggleSidebar()">&#9776;</button>
+
+<!-- Dark overlay behind sidebar on mobile -->
+<div class="overlay" id="overlay" onclick="toggleSidebar()"></div>
+
+  <nav class="sidebar" id="sidebar">
+
+      <div class="sidebar-nav">
+    <div class="sidebar-title"><a href="index.html">AX</a></div>
+      <a href="about.html">About</a>
+      <a href="datacode.html">Code+Data</a>
+      <a href="blog.html">Blog</a>
     </div>
-    
-    <div class="nav-section">
-      <ul class="nav-links">
-        <li><a href="about.html"><i class="fa fa-user"></i> About</a></li>
-        <li><a href="research.html"><i class="fa fa-search"></i> Research</a></li>
-        <li><a href="datacode.html"><i class="fa fa-code"></i> Code+Data</a></li>
-      </ul>
-    </div>
-    
-    <div class="nav-section">
-      <h3>External</h3>
-      <ul class="nav-links">
-        <li><a href="https://www.linkedin.com/in/anna-xu-257317275/" target="_blank"><i class="fa fa-linkedin"></i> LinkedIn</a></li>
-        <li><a href="https://github.com/anna-xu" target="_blank"><i class="fa fa-github"></i> GitHub</a></li>
-      </ul>
-    </div>
+    <div class="sidebar-nav-footer">🐈 <a href="https://github.com/anna-xu/anna-xu.github.io"><u>Site Code</u></a></div>
+
   </nav>
 
-  <!-- Main Content Area -->
-  <main class="main-content">
-    <h1><center>About Me</center></h1>
+<div class="content">
+<h1>About Me</h1>
+<br>
+<p>
+I am currently a PhD student at Stanford, researching human brain mapping and cognition, especially in sensorimotor systems. 
+More broadly, I am interested in applying biomedical data science to improve health and well-being outcomes.
+<br><br>
+My specific doctoral work aims to characterize neural plasticity induced by motor skill learning while preserving individual functional brain boundaries. 
+By better characterizing these trajectories of neuroplasticity, we can develop more precise brain models for applications in mapping the efficacy of interventions, such as in behavioral change or therapeutics.
+<br><br>
+Some of my previous work assesses the use of MRI as a tool for biomarker development of <b><i>pain</i></b> using a meta-analytic approach. 
+I have also previously worked on questions related to the subjective experience of <b><i>fatigue</i></b> and how feedback influences it.
+A deeper understanding of questions related to experiences in <i>pain</i> and <i>fatigue</i> helps us better map experiences from sensorimotor systems to affect, with implications in the clinical and other settings.
+<br><br>
+Below are some representative publications in my research that dives into these questions, along with their associated code. <u><b>You can also find other code/data in the Code+Data section.</b></u>
+<br><br></font>
+<br><br>
 
-    <div class="research-intro">
-      <p>I'm a current <b>PhD Candidate/Researcher</b> & <a href = "https://datascience.stanford.edu/people/anna-xu"><b>Data Science Scholar alum</b></a> @ <b>Stanford University</b>. 
-        Drawing on my background in data science and experimental psychology, my goal is to
-        create next-generation human-machine interface solutions that enhance performance 
-        and well-being.
+<b>Brain responses to noxious stimuli in patients with chronic pain: A systematic review and meta-analysis.</b> <i>JAMA Network Open</i>.<br>
+[<a href="https://jamanetwork.com/journals/jamanetworkopen/article-abstract/2774581">Link</a>] [<a href="https://pennlinc.github.io/Xu_fMRIChronicPain/">Code</a>]<br>
+<i><small><b>Anna Xu</b>, Bart Larsen, Alina Henn, Erica B. Baller, J. Cobb Scott, Vaishnavi Sharma<span>&#8224;</span> , Azeez Adebimpe, Allan I. Basbaum, Gregory Corder, Robert H. Dworkin, Robert R. Edwards, Clifford J. Woolf, Simon B. Eickhoff, Claudia R. Eickhoff, Theodore D. Satterthwaite</small></i><br>
+<details>
+    <summary>
+      Abstract
+    </summary>
+    <p>
+        <b>Importance</b>  Functional neuroimaging is a valuable tool for understanding how patients with chronic pain respond to painful stimuli. However, past studies have reported heterogenous results, highlighting opportunities for a quantitative meta-analysis to integrate existing data and delineate consistent associations across studies.
+        <br><br>
+        <b>Objective</b>  To identify differential brain responses to noxious stimuli in patients with chronic pain using functional magnetic resonance imaging (fMRI) while adhering to current best practices for neuroimaging meta-analyses.
+        <br><br>
+        <b>Data Sources</b>    All fMRI experiments published from January 1, 1990, to May 28, 2019, were identified in a literature search of PubMed/MEDLINE, EMBASE, Web of Science, Cochrane Library, PsycINFO, and SCOPUS.
+        <br><br>
+        <b>Study Selection</b>  Experiments comparing brain responses to noxious stimuli in fMRI between patients and controls were selected if they reported whole-brain results, included at least 10 patients and 10 healthy control participants, and used adequate statistical thresholding (voxel-height P < .001 or cluster-corrected P < .05). Two independent reviewers evaluated titles and abstracts returned by the search. In total, 3682 abstracts were screened, and 1129 full-text articles were evaluated.
+        <br><br>
+        <b>Data Extraction and Synthesis</b>  Thirty-seven experiments from 29 articles met inclusion criteria for meta-analysis. Coordinates reporting significant activation differences between patients with chronic pain and healthy controls were extracted. These data were meta-analyzed using activation likelihood estimation. Data were analyzed from December 2019 to February 2020.
+        <br><br>
+        <b>Main Outcomes and Measures</b>  A whole-brain meta-analysis evaluated whether reported differences in brain activation in response to noxious stimuli between patients and healthy controls were spatially convergent. Follow-up analyses examined the directionality of any differences. Finally, an exploratory (nonpreregistered) region-of-interest analysis examined differences within the pain network.
+        <br><br>
+        <b>Results</b>  The 37 experiments from 29 unique articles included a total of 511 patients and 433 controls (944 participants). Whole-brain meta-analyses did not reveal significant differences between patients and controls in brain responses to noxious stimuli at the preregistered statistical threshold. However, exploratory analyses restricted to the pain network revealed aberrant activity in patients.
+        <br><br>
+        <b>Conclusions and Relevance</b>  In this systematic review and meta-analysis, preregistered, whole-brain analyses did not reveal aberrant fMRI activity in patients with chronic pain. Exploratory analyses suggested that subtle, spatially diffuse differences may exist within the pain network. Future work on chronic pain biomarkers may benefit from focus on this core set of pain-responsive areas.
+    </p>
+  </details>
+<br>
 
-      <p>You can contact me at xua!at!stanford!dot!edu (delete the exclamation marks). </p>
+<b>Convergent neural representations of experimentally-induced acute pain in healthy volunteers: A large-scale fMRI meta-analysis.</b> <i>Neuroscience & Biobehavioral Reviews</i>.<br>
+[<a href="https://www.sciencedirect.com/science/article/pii/S0149763419308656">Link</a>] [<a href="https://github.com/PennLINC/Xu_PainHealthy">Code</a>] [<a href="https://www.biorxiv.org/content/10.1101/779280v1.abstract">Preprint</a>]<br>
+<i><small><b>Anna Xu</b>, Bart Larsen, Erica B. Baller, J. Cobb Scott, Vaishnavi Sharma<span>&#8224;</span> , Azeez Adebimpe, Allan I. Basbaum, Robert H. Dworkin, Robert R. Edwards, Clifford J. Woolf, Simon B. Eickhoff, Claudia R. Eickhoff, Theodore D. Satterthwaite</small></i><br>
+<details>
+    <summary>
+      Abstract
+    </summary>
+    <p>
+        Characterizing a reliable, pain-related neural signature is critical for translational applications. Many prior fMRI studies have examined acute nociceptive pain-related brain activation in healthy participants. However, synthesizing these data to identify convergent patterns of activation can be challenging due to the heterogeneity of experimental designs and samples. To address this challenge, we conducted a comprehensive meta-analysis of fMRI studies of stimulus-induced pain in healthy participants. Following pre-registration, two independent reviewers evaluated 4,927 abstracts returned from a search of 8 databases, with 222 fMRI experiments meeting inclusion criteria. We analyzed these experiments using Activation Likelihood Estimation with rigorous type I error control (voxel height p < 0.001, cluster p < 0.05 FWE-corrected) and found a convergent, largely bilateral pattern of pain-related activation in the secondary somatosensory cortex, insula, midcingulate cortex, and thalamus. Notably, these regions were consistently recruited regardless of stimulation technique, location of induction, and participant sex. These findings suggest a highly-conserved core set of pain-related brain areas, encouraging applications as a biomarker for novel therapeutics targeting acute nociceptive pain.    
+    </p>
+  </details>
+<br>
 
-        <h2>Background</h2>
-        <p>My PhD research applies neuroimaging techniques to develop individual brain maps of motor skill learning, as well as to build software for supporting precision neuroscience 
-          (you can read more in the <a href="research.html">Research</a> page). 
-          I've also previously worked in industry as a doctoral research intern in the Human-Centered AI division at leading automative company's research institute. 
-          During my internship, I led an applied behavioral data science project, where I developed and implemented statistical and machine learning models to explore 
-          potential product strategies.</p>
+<b>Do you ever get tired of being wrong? The unique impact of feedback on subjective experiences of effort-based decision-making.</b><br>
+[<a href="https://osf.io/preprints/psyarxiv/5jekt">Preprint</a>] [<a href="https://github.com/anna-xu/hgt">Code</a>]<br>
+<i><small><b>Anna Xu</b>, Romy Frömer, Wanja Wolff, and Amitai Shenhav</small></i><br>
+<details>
+    <summary>
+      Abstract
+    </summary>
+    <p>
+      To achieve a goal, people have to keep track of how much effort they are putting in (effort monitoring) and how well they are performing (performance monitoring), which can be informed by endogenous signals, or exogenous signals providing explicit feedback about whether they have met their goal. Interventions to improve performance often focus on adjusting feedback to direct the individual on how to better invest their efforts, but is it possible that this feedback itself plays a role in shaping the experience of how effortful the task feels? Here, we examine this question directly by assessing the relationship between effort monitoring and performance monitoring. Participants (N = 68) performed a task in which their goal was to squeeze a handgrip to within a target force level (not lower or higher) for a minimum duration. On most trials, they were given no feedback as to whether they met their goal, and were largely unable to detect how they had performed. On a subset of trials, however, we provided participants with (false) feedback indicating that they had either succeeded or failed at meeting their goal (positive vs. negative feedback blocks, respectively). Sporadically, participants rated their experience of effort exertion, fatigue, and confidence in having met the target grip force on that trial. Despite being non-veridical to their actual performance, we found that the type of feedback participants received influenced their experience of effort. When receiving negative (vs. positive) feedback, participants fatigued faster and adjusted their grip strength more for higher target force levels. We also found that confidence gradually increased with increasing positive feedback and decreased with increasing negative feedback, again despite feedback being uniformly uninformative. These results suggest differential influences of feedback on experiences related to effort and further shed light on the relationship between experiences related to performance monitoring and effort monitoring.
+    </p>
+  </details>
+<br>
 
-        <p>Prior to Stanford, I worked as a data analyst at Penn Lifespan, Informatics, and Neuroimaging Center, where I used data science tools 
-          to help identify potential biomarkers of maladaptive neural states, such as chronic pain.
-          Before that, I graduated from Brown University with a BSc in cognitive neuroscience, conducting research on the effects of performance feedback on fatigue and effort.</p>
-      
-      <h2>Outside of Work</h2>
-      <p>I like starting random creative projects, both digitally and non-digitally. Recently, I've been playing around with making Visual Studio Code editor themes -- here's a 
-        <a href="https://github.com/anna-xu/shogun_theme">Shogun (TV Show)-inspired theme</a> that I'm also currently using.</p>
-      </div>
-      <footer><a href="https://github.com/anna-xu/anna-xu.github.io">🐈 Site Code</a></footer>
+</p>
+
+
+</div>
+
+
+<script>
+  function toggleSidebar() {
+    const sidebar = document.getElementById('sidebar');
+    const overlay = document.getElementById('overlay');
+    sidebar.classList.toggle('open');
+    overlay.classList.toggle('active');
+  }
+</script>
+
+
 </body>
-</html>
